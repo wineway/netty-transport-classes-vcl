@@ -1,0 +1,9 @@
+vcl {
+  app-socket-api /run/vpp/app_ns_sockets/default
+  app-scope-local
+  app-scope-global
+  use-mq-eventfd
+  max-workers 16
+  rx-fifo-size 1048576
+  tx-fifo-size 1048576
+}

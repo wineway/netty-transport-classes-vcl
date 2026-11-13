@@ -1,0 +1,24 @@
+              Name               Idx    State  MTU (L3/IP4/IP6/MPLS)     Counter          Count     
+host-nvserver                     1      up          9000/0/0/0     rx packets               9587798
+                                                                    rx bytes             12723079396
+                                                                    tx packets               9387399
+                                                                    tx bytes             12712817854
+                                                                    drops                          2
+                                                                    ip4                      9587795
+                                                                    ip6                            2
+local0                            0     down          0/0/0/0       
+   Count                  Node                              Reason               Severity 
+         1             arp-reply                       ARP replies sent            info   
+   9387357           session-queue                   Packets transmitted           info   
+        41            tcp4-listen                       SYNs received              info   
+        41          tcp4-rcv-process                  Pure ACKs received           info   
+        41          tcp4-rcv-process                 Connections accepted          info   
+   7670540          tcp4-established             Packets pushed into rx fifo       info   
+   1011370          tcp4-established           OOO packets pushed into rx fifo     warn   
+       181          tcp4-established                     Old segment               warn   
+    905481          tcp4-established                  Pure ACKs received           info   
+        43          tcp4-established                  PAWS check failed            error  
+        16          tcp4-established            Segment not in receive window      warn   
+        41          tcp4-established                    FINs received              info   
+   9387398            tcp4-output                        Packets sent              info   
+         2           ethernet-input                        no error                error  
