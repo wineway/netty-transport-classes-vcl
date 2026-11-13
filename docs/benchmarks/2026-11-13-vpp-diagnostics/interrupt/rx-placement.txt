@@ -1,0 +1,3 @@
+Thread 0 (vpp_main):
+ node af-packet-input:
+    host-nvserver queue 0 (interrupt)

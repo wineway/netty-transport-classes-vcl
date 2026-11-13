@@ -163,7 +163,10 @@ final class NativeVcl {
     int eventfd() { return call(eventfd, callState.get(), 0, 0x800 | 0x80000 /* NONBLOCK | CLOEXEC */); }
     int osClose(int fd) { return call(osClose, callState.get(), fd); }
     int poll(MemorySegment fds, int timeout) {
-        try { return (int) poll.invokeExact(callState.get(), fds, 2L, timeout); }
+        return poll(fds, 2L, timeout);
+    }
+    int poll(MemorySegment fds, long count, int timeout) {
+        try { return (int) poll.invokeExact(callState.get(), fds, count, timeout); }
         catch (Throwable e) { throw bindingFailure(e); }
     }
     long osRead(int fd, MemorySegment word) {

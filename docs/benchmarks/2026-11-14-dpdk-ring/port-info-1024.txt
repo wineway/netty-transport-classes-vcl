@@ -1,0 +1,41 @@
+show port info all
+
+********************* Infos for port 0  *********************
+MAC address: 00:00:00:00:00:00
+Device name: net_ring0
+Driver name: net_ring
+Firmware-version: not available
+Devargs: 
+Connect to socket: 0
+memory allocation on the socket: 0
+Link status: up
+Link speed: 10 Gbps
+Link duplex: full-duplex
+Autoneg status: Off
+MTU: 1500
+Promiscuous mode: enabled
+Allmulticast mode: enabled
+Maximum number of MAC addresses: 1
+Maximum number of MAC addresses of hash filtering: 0
+VLAN offload: 
+  strip off, filter off, extend off, qinq strip off
+No RSS offload flow type is supported.
+Minimum size of RX buffer: 0
+Maximum configurable length of RX packet: 4294967295
+Maximum configurable size of LRO aggregated packet: 0
+Current number of RX queues: 1
+Max possible RX queues: 16
+Max possible number of RXDs per queue: 65535
+Min possible number of RXDs per queue: 0
+RXDs number alignment: 1
+Current number of TX queues: 1
+Max possible TX queues: 16
+Max possible number of TXDs per queue: 65535
+Min possible number of TXDs per queue: 0
+TXDs number alignment: 1
+Max segment number per packet: 65535
+Max segment number per MTU/TSO: 65535
+Device capabilities: 0x0( )
+Device error handling mode: none
+Device private info:
+  none

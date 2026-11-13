@@ -26,8 +26,16 @@ public final class VclServerBootstrap {
         loops = List.copyOf(found);
     }
     public VclServerBootstrap childHandler(ChannelHandler handler) { childHandler = Objects.requireNonNull(handler); return this; }
-    public <T> VclServerBootstrap option(ChannelOption<T> option, T value) { options.put(option, value); return this; }
-    public <T> VclServerBootstrap childOption(ChannelOption<T> option, T value) { childOptions.put(option, value); return this; }
+    public <T> VclServerBootstrap option(ChannelOption<T> option, T value) {
+        Objects.requireNonNull(option, "option");
+        if (value == null) options.remove(option); else options.put(option, value);
+        return this;
+    }
+    public <T> VclServerBootstrap childOption(ChannelOption<T> option, T value) {
+        Objects.requireNonNull(option, "option");
+        if (value == null) childOptions.remove(option); else childOptions.put(option, value);
+        return this;
+    }
 
     public Future<VclServerBinding> bind(InetSocketAddress address) {
         AbstractVclChannel.ipv4(address);

@@ -1,0 +1,133 @@
+{
+  "environment": {
+    "date_utc": "2026-11-13T16:45:40Z",
+    "uname": [
+      "Linux",
+      "b2b1fbdd05de",
+      "7.2.8-arch1-1",
+      "#1 SMP PREEMPT_DYNAMIC Thu, 01 Oct 2026 02:24:43 +0000",
+      "x86_64"
+    ],
+    "cpu_max": "max 100000",
+    "allowed_cpus": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "command": [
+      "stdbuf",
+      "-o0",
+      "-e0",
+      "/tmp/netty-vcl-deps/dpdk-25.07/build-ring/app/dpdk-testpmd",
+      "-l",
+      "0-1",
+      "-m",
+      "256",
+      "--no-huge",
+      "--no-pci",
+      "--no-shconf",
+      "--no-telemetry",
+      "--vdev=net_ring0",
+      "--",
+      "--port-topology=loop",
+      "--total-num-mbufs=2048",
+      "--nb-cores=1",
+      "--forward-mode=io",
+      "-i"
+    ],
+    "binary_sha256": "1b2a329faa39ca20e44a257cd26d118174240ab8de0d6fdfd5b726d5e8d67ddb",
+    "script_sha256": "3d8d56992e8b3c2c30684845c81f8881ebd885051d963057a75a0831d08b1e95",
+    "options": {
+      "binary": "/tmp/netty-vcl-deps/dpdk-25.07/build-ring/app/dpdk-testpmd",
+      "output": "target/dr-valid",
+      "cpus": "0-1",
+      "warmup": 5.0,
+      "seconds": 10.0,
+      "sizes": [
+        64,
+        1024
+      ]
+    },
+    "path": "testpmd io forwarding -> net_ring0 -> same in-process rte_ring -> testpmd",
+    "scope": "mbuf pointer recirculation; no TCP, VPP, VCL, JVM, kernel networking or NIC",
+    "hugepages": [
+      "HugePages_Total:       0",
+      "HugePages_Free:        0",
+      "HugePages_Rsvd:        0",
+      "HugePages_Surp:        0",
+      "Hugepagesize:       2048 kB",
+      "Hugetlb:               0 kB"
+    ]
+  },
+  "samples": [
+    {
+      "packet_bytes": 64,
+      "elapsed_seconds": 10.000347554218024,
+      "counters_delta": {
+        "RX-packets": 4040717824,
+        "TX-packets": 4040717824,
+        "RX-errors": 0,
+        "TX-errors": 0,
+        "RX-missed": 0,
+        "RX-nombuf": 0
+      },
+      "rx_packets_per_second": 404057739.20284146,
+      "tx_packets_per_second": 404057739.20284146,
+      "process_cpu_seconds": 9.98,
+      "process_cpu_cores": 0.9979653152945228,
+      "cgroup_delta": {
+        "usage_usec": 10220373,
+        "user_usec": 10202141,
+        "system_usec": 18232,
+        "nice_usec": 0,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 0,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    {
+      "packet_bytes": 1024,
+      "elapsed_seconds": 10.000318402890116,
+      "counters_delta": {
+        "RX-packets": 4017205280,
+        "TX-packets": 4017205280,
+        "RX-errors": 0,
+        "TX-errors": 0,
+        "RX-missed": 0,
+        "RX-nombuf": 0
+      },
+      "rx_packets_per_second": 401707737.5095395,
+      "tx_packets_per_second": 401707737.5095395,
+      "process_cpu_seconds": 9.99,
+      "process_cpu_cores": 0.9989681925640354,
+      "cgroup_delta": {
+        "usage_usec": 10220277,
+        "user_usec": 10220276,
+        "system_usec": 0,
+        "nice_usec": 0,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 0,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    }
+  ]
+}

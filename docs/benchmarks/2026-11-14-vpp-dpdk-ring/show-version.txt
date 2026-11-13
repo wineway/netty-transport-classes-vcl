@@ -1,0 +1,1 @@
+vpp v25.10-release built by root on a55774381098 at 2025-10-29T10:59:07

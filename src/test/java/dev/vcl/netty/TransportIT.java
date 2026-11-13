@@ -118,6 +118,92 @@ class TransportIT {
         assertEquals(before, runtime.activeWorkers());
     }
 
+    @Test @Order(7) void concurrentTasksRunAcrossIdleWakeups() throws Exception {
+        EventLoop loop = (EventLoop) clients.next();
+        AtomicInteger executed = new AtomicInteger();
+        for (int round = 0; round < 16; round++) {
+            CountDownLatch start = new CountDownLatch(1);
+            var submitters = new ArrayList<FutureTask<Void>>();
+            try {
+                for (int i = 0; i < 8; i++) {
+                    FutureTask<Void> submitter = new FutureTask<>(() -> {
+                        start.await();
+                        var tasks = new ArrayList<io.netty.util.concurrent.Future<?>>();
+                        for (int j = 0; j < 32; j++) tasks.add(loop.submit(executed::incrementAndGet));
+                        for (var task : tasks) task.get(1, TimeUnit.SECONDS);
+                        return null;
+                    });
+                    submitters.add(submitter);
+                    Thread.ofPlatform().start(submitter);
+                }
+                start.countDown();
+                for (var submitter : submitters) submitter.get(2, TimeUnit.SECONDS);
+                // Give the loop an idle/timer transition before the next producer burst.
+                loop.schedule(() -> { }, 1, TimeUnit.MILLISECONDS).get(1, TimeUnit.SECONDS);
+            } finally { start.countDown(); }
+        }
+        assertEquals(16 * 8 * 32, executed.get());
+    }
+
+    @Test @Order(8) void concurrentNativeWakeupsCanRacePollerClose() throws Exception {
+        int before = runtime.activeWorkers();
+        for (int round = 0; round < 8; round++) {
+            AtomicBoolean stop = new AtomicBoolean();
+            CountDownLatch start = new CountDownLatch(1), started = new CountDownLatch(8);
+            var callers = new ArrayList<FutureTask<Void>>();
+            try (VclPoller poller = new VclPoller(runtime)) {
+                try {
+                    for (int i = 0; i < 8; i++) {
+                        FutureTask<Void> caller = new FutureTask<>(() -> {
+                            start.await();
+                            poller.wakeup();
+                            started.countDown();
+                            while (!stop.get()) poller.wakeup();
+                            return null;
+                        });
+                        callers.add(caller);
+                        Thread.ofPlatform().start(caller);
+                    }
+                    start.countDown();
+                    assertTrue(started.await(2, TimeUnit.SECONDS));
+                    for (int i = 0; i < 32; i++) poller.poll(1);
+                    poller.close();
+                    for (int i = 0; i < 128; i++) poller.wakeup();
+                } finally { stop.set(true); start.countDown(); }
+                for (var caller : callers) caller.get(2, TimeUnit.SECONDS);
+            }
+        }
+        assertEquals(before, runtime.activeWorkers());
+    }
+
+    @Test @Order(9) void tasksQueuedBeforeOrDuringWakeupArmingPreventBlocking() throws Exception {
+        for (boolean beforeArming : new boolean[]{true, false}) {
+            try (VclPoller poller = new VclPoller(runtime)) {
+                Runnable wake = () -> {
+                    FutureTask<Void> writer = new FutureTask<>(() -> { poller.wakeup(); return null; });
+                    Thread.ofPlatform().start(writer);
+                    try { writer.get(1, TimeUnit.SECONDS); }
+                    catch (Exception e) { throw new CompletionException(e); }
+                };
+                if (beforeArming) wake.run(); // Coalesced while the owner is awake; no fd write.
+                AtomicBoolean checked = new AtomicBoolean();
+                IoHandlerContext context = new IoHandlerContext() {
+                    @Override public boolean canBlock() {
+                        checked.set(true);
+                        if (!beforeArming) wake.run(); // Arrives after the owner arms its wait.
+                        return false;
+                    }
+                    @Override public long delayNanos(long now) { return 10_000_000L; }
+                    @Override public long deadlineNanos() { return -1; }
+                    @Override public void reportActiveIoTime(long nanos) { }
+                    @Override public boolean shouldReportActiveIoTime() { return false; }
+                };
+                assertEquals(0, poller.poll(10, context));
+                assertTrue(checked.get(), "must recheck the task queue after arming the wait");
+            }
+        }
+    }
+
     private int listen(String mode) throws Exception {
         int port = nextPort++;
         peer = new Peer(mode, port);

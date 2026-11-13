@@ -1,0 +1,20 @@
+MEASURE_START
+MEASURE_END
+Exception in thread "main" java.util.concurrent.ExecutionException: java.lang.IllegalStateException: in-flight replies did not drain: 128
+	at java.base/java.util.concurrent.CompletableFuture.wrapInExecutionException(CompletableFuture.java:345)
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:440)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2117)
+	at dev.vcl.netty.benchmark.TransportBenchmark.client(TransportBenchmark.java:84)
+	at dev.vcl.netty.benchmark.TransportBenchmark.main(TransportBenchmark.java:22)
+Caused by: java.lang.IllegalStateException: in-flight replies did not drain: 128
+	at dev.vcl.netty.benchmark.TransportBenchmark$State.lambda$finish$0(TransportBenchmark.java:132)
+	at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:96)
+	at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:160)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:148)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:141)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:535)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:201)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1193)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1516)

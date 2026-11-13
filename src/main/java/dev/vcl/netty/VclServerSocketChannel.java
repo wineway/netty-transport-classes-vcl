@@ -17,18 +17,31 @@ public final class VclServerSocketChannel extends AbstractVclChannel implements 
         active = true;
     }
     @Override void readReady() throws Exception {
+        if (!open) return;
+        RecvByteBufAllocator.Handle allocator = unsafe().recvBufAllocHandle();
+        allocator.reset(config);
+        allocator.attemptedBytesRead(1);
+        Throwable exception = null;
         try {
-            for (int budget = 16; budget > 0 && open && (readPending || config.isAutoRead()); budget--) {
+            do {
                 int accepted = poller.api.accept(session);
+                allocator.lastBytesRead(accepted == NativeVcl.AGAIN ? -1 : accepted);
                 if (accepted == NativeVcl.AGAIN) break;
                 VclException.check("accept", accepted);
+                allocator.incMessagesRead(1);
                 VclSocketChannel child;
                 try { child = new VclSocketChannel(this, accepted, poller); }
                 catch (Exception | Error e) { poller.api.close(accepted); throw e; }
                 readPending = false;
                 pipeline().fireChannelRead(child);
-            }
-        } finally { pipeline().fireChannelReadComplete(); }
+            } while (open && allocator.continueReading());
+        } catch (Throwable cause) { exception = cause; }
+        finally {
+            allocator.readComplete();
+            pipeline().fireChannelReadComplete();
+            if (exception != null) pipeline().fireExceptionCaught(exception);
+            if (!readPending && !config.isAutoRead()) refreshInterests();
+        }
     }
     @Override protected void doWrite(ChannelOutboundBuffer outbound) { throw new UnsupportedOperationException("Server channel cannot write"); }
     @Override protected Object filterOutboundMessage(Object message) { throw new UnsupportedOperationException("Server channel cannot write"); }

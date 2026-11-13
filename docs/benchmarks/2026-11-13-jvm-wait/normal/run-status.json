@@ -1,0 +1,6 @@
+{
+  "valid_samples": 1,
+  "failed_scenario": "window128",
+  "error": "in-flight replies did not drain: 128",
+  "note": "No throughput RESULT was emitted for window128. Cleanup then reported BrokenPipeError; no final results.json was written."
+}

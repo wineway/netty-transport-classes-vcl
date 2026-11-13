@@ -2,6 +2,8 @@ package dev.vcl.netty;
 
 import io.netty.channel.*;
 import io.netty.util.concurrent.ThreadAwareExecutor;
+import io.netty.util.collection.LongObjectHashMap;
+import io.netty.util.collection.LongObjectMap;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.LockSupport;
@@ -18,7 +20,7 @@ public final class VclIoHandler implements IoHandler {
 
     private final VclRuntime runtime;
     private final ThreadAwareExecutor executor;
-    private final Map<Long, Registration> registrations = new HashMap<>();
+    private final LongObjectMap<Registration> registrations = new LongObjectHashMap<>(4096);
     private volatile VclPoller poller;
     private volatile Thread thread;
     private volatile boolean failed;
@@ -63,7 +65,7 @@ public final class VclIoHandler implements IoHandler {
         try {
             long delay = Math.max(0, Math.min(10_000_000L, context.delayNanos(System.nanoTime())));
             int timeout = context.canBlock() ? (int) ((delay + 999_999) / 1_000_000) : 0;
-            int ready = poller.poll(timeout);
+            int ready = poller.poll(timeout, context);
             long processingStarted = context.shouldReportActiveIoTime() ? System.nanoTime() : 0;
             int handled = 0;
             for (int i = 0; i < ready; i++) {
@@ -122,7 +124,7 @@ public final class VclIoHandler implements IoHandler {
                     poller.control(added ? NativeVcl.MOD : NativeVcl.ADD, handle.session(), ops.value(), token);
                     added = true;
                 }
-                return token;
+                return ops.value();
             } catch (VclException e) { throw new java.io.UncheckedIOException(e); }
         }
         @Override public boolean cancel() {
@@ -131,7 +133,7 @@ public final class VclIoHandler implements IoHandler {
             return true;
         }
         private void cancel0() {
-            registrations.remove(token, this);
+            registrations.remove(token);
             try {
                 if (added) poller.control(NativeVcl.DEL, handle.session(), 0, token);
             } catch (VclException ignored) { /* Channel may already have closed the session. */ }

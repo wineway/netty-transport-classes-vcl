@@ -1,6 +1,6 @@
 # 验证记录
 
-验证日期：2026-11-13。
+初始验证：2026-11-13。最新 epoll 语义回归：2026-11-14。
 
 ## 基线与路径
 
@@ -25,7 +25,7 @@
 | 线程与销毁 | 拒绝虚拟线程拥有 worker，EventLoop 终止后活跃 worker 为零 |
 | VPP 退出故障 | 停止脚本自建 VPP 后，Channel 自动关闭，待发送 Promise 失败，清理完成 |
 
-完整验收为 **4 项单元测试 + 11 项集成测试，失败 0、错误 0、跳过 0**。测试通过后产出 `target/netty-vcl-0.1.0-SNAPSHOT.jar`。
+初始完整验收为 **4 项单元测试 + 11 项集成测试，失败 0、错误 0、跳过 0**。测试通过后产出 `target/netty-vcl-0.1.0-SNAPSHOT.jar`。
 
 复现命令：
 
@@ -39,7 +39,17 @@ VPP_PREFIX=/path/to/vpp/usr scripts/verify-vpp.sh
 
 原始 JUnit XML/文本报告在 `target/surefire-reports/` 和 `target/failsafe-reports/`，拓扑和运行日志在 `target/wire/`。故障测试会主动停止 VPP，因此退出时诊断日志中出现 socket connection refused 是预期的。
 
+## 唤醒去锁回归
+
+2026-11-13 在当前 Ubuntu 26.04 / Java 26.0.2.1 / VPP/VCL 25.10 环境重跑完整验收。当前内核不支持 veth，验证使用 `target/verify-netkit.sh` 将原验证脚本的 veth 创建行替换为 netkit L2，其余测试步骤相同；VPP 包解压于 `/tmp`，未替换系统安装。
+
+新增真实 VPP 验证覆盖 16 轮、每轮 8 个生产者提交任务（合计 4096 项），8 轮、每轮 8 个线程持续唤醒与 poller 关闭竞争，以及等待状态建立前、后到达的任务都必须经过二次队列检查。额外在途写入计数及其专属单元测试已移除。
+
+`VclPoller.wakeup()` 和关闭资源段已移除 `synchronized`，对齐 epoll 的 awake / pendingWakeup 及最多 1 秒的通知等待，不提供额外的“所有写入调用已返回”保证。唤醒字改为进程级只读 8 字节 native 常量。本次不据此宣称端到端吞吐提升，已有性能报告对应各自记录的源码 hash。
+
 ## 已确认的上游行为与适配
+
+2026-11-14 按 Netty 4.2.7.Final epoll transport class 对照后完成全量 verify：**7项单元测试 + 20项真实VPP集成测试，失败0、错误0、跳过0**。本轮采用隔离 netkit L2 报文路径，覆盖原有用例和新增的连接、接收分配器、FIN事件、写预算、shutdown、重新注册及Promise顺序回归。具体修正与保留的VCL差异见[epoll语义对照](EPOLL-PARITY.md)。
 
 VPP 本地 transport 避免连接到同一 application 自己的 listener；因此本地集成测试使用两个 JVM，而非在同一 application 中做自连接。
 
@@ -52,7 +62,7 @@ libc errno 通过 FFM `captureCallState("errno")` 捕获，避免 JVM/native 转
 ## 尚未完成的生产验收
 
 - 一小时及更长的持续收发、连接 churn 和 native 内存/fd 趋势检查。
-- 目标部署环境中与 Netty epoll 的新建连接速率、扩展能力及峰值比较。当前受限环境已完成固定连接 echo 的吞吐、p50/p99 和 CPU 比较，计入 VPP CPU，见[性能报告](BENCHMARK.md)。
+- 目标部署环境中与 Netty epoll 的新建连接速率、扩展能力及峰值比较。固定连接 echo 已有[历史单核性能报告](BENCHMARK.md)和[当前环境 VPP 独立核心复测](BENCHMARK-DEDICATED-VPP.md)，均计入 VPP CPU。
 - 真实 NIC、DPDK、NUMA、绑核、真实业务协议和 TLS 组合验证。
 - 多进程重启、部署升级、VPP 版本升级及更大 worker/连接规模的兼容性验证。
 

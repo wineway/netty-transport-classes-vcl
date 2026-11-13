@@ -1,0 +1,33 @@
+Time 15.6, 10 sec internal node vector rate 131.87 loops/sec 9040820.81
+  vector rates in 8.8938e5, out 4.4063e5, drop 1.2789e-1, punt 0.0000e0
+             Name                 State         Calls          Vectors        Suspends         Clocks       Vectors/Call  
+af-packet-input                  polling          16454325         7020190               0          1.62e2             .43
+api-rx-from-ring               "any wait"                0               0               1          7.77e3            0.00
+drop                             active                  2               2               0          1.49e3            1.00
+error-drop                       active                  2               2               0          1.03e3            1.00
+ethernet-input                   active              77000         7020190               0          1.44e1           91.17
+fib-walk                       "any wait"                0               0               7          2.98e3            0.00
+host-nvserver-output             active              78435         6893242               0          9.74e1           87.88
+host-nvserver-tx                 active              78435         6893242               0          2.04e3           87.88
+ip4-full-reassembly-expire-wal "any wait"                0               0             313          1.96e3            0.00
+ip4-input                        active              77000         7020188               0          1.04e1           91.17
+ip4-lookup                       active             115565        13913430               0          1.06e1          120.39
+ip4-receive                      active              77000         7020188               0          9.70e1           91.17
+ip4-rewrite                      active              78435         6893242               0          9.18e0           87.88
+ip4-sv-reassembly-expire-walk  "any wait"                0               0               2          1.60e3            0.00
+ip6-full-reassembly-expire-wal "any wait"                0               0             313          2.26e3            0.00
+ip6-input                        active                  2               2               0          1.08e3            1.00
+ip6-mld-process                "any wait"                0               0              15          1.01e3            0.00
+ip6-not-enabled                  active                  2               2               0          7.82e2            1.00
+ip6-ra-process                 "any wait"                0               0              15          2.04e3            0.00
+ip6-sv-reassembly-expire-walk  "any wait"                0               0               2          2.15e3            0.00
+session-input                 interrupt wa           70527               0               0          1.90e3            0.00
+session-queue                    polling          16454325         6893210               0          2.86e2             .42
+statseg-collector-process      "suspended"               0               0               2          4.21e5            0.00
+tcp4-established                 active              76907         7020092               0          1.83e2           91.28
+tcp4-input                       active              77000         7020188               0          2.70e1           91.17
+tcp4-listen                      active                 32              32               0          4.38e3            1.00
+tcp4-output                      active              78435         6893242               0          1.38e1           87.88
+tcp4-rcv-process                 active                 64              64               0          5.24e2            1.00
+unix-cli-new-session           "any wait"                0               0               4          1.45e3            0.00
+unix-cli-process-0              "running"                1               0               2          3.08e4            0.00

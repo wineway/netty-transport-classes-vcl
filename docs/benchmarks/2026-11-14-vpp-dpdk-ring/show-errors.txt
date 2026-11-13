@@ -1,0 +1,3 @@
+   Count                  Node                              Reason               Severity 
+         1             arp-reply             IP4 source address matches local in   error  
+         1             ip4-glean                      ARP requests sent            info   

@@ -1,0 +1,3 @@
+MEASURE_START
+MEASURE_END
+RESULT {"bytes":65536,"connections":8,"window":4,"warmup_seconds":5,"elapsed_seconds":10.000764937,"messages":77648,"messages_per_second":7764.206,"payload_mib_per_second":485.263,"p50_us":4235.263,"p99_us":6918.143,"max_us":11165.695,"client_cpu_seconds":4.340000000}

@@ -1,0 +1,21 @@
+              Name               Idx    State  MTU (L3/IP4/IP6/MPLS)     Counter          Count     
+host-nvserver                     1      up          9000/0/0/0     rx packets              12970750
+                                                                    rx bytes             16284239488
+                                                                    tx packets              12159769
+                                                                    tx bytes             16230815722
+                                                                    drops                         12
+                                                                    ip4                     12970737
+                                                                    ip6                           12
+local0                            0     down          0/0/0/0       
+   Count                  Node                              Reason               Severity 
+         1             arp-reply                       ARP replies sent            info   
+  12159727           session-queue                   Packets transmitted           info   
+        41            tcp4-listen                       SYNs received              info   
+        41          tcp4-rcv-process                  Pure ACKs received           info   
+        41          tcp4-rcv-process                 Connections accepted          info   
+  11097736          tcp4-established             Packets pushed into rx fifo       info   
+     82736          tcp4-established           OOO packets pushed into rx fifo     warn   
+   1790101          tcp4-established                  Pure ACKs received           info   
+        41          tcp4-established                    FINs received              info   
+  12159768            tcp4-output                        Packets sent              info   
+        12           ethernet-input                        no error                error  

@@ -16,7 +16,10 @@ final class VclSocketChannelConfig extends DefaultChannelConfig implements Socke
     @Override public SocketChannelConfig setMaxMessagesPerRead(int value) { super.setMaxMessagesPerRead(value); return this; }
     @Override public SocketChannelConfig setWriteSpinCount(int value) { super.setWriteSpinCount(value); return this; }
     @Override public SocketChannelConfig setAllocator(ByteBufAllocator value) { super.setAllocator(value); return this; }
-    @Override public SocketChannelConfig setRecvByteBufAllocator(RecvByteBufAllocator value) { super.setRecvByteBufAllocator(value); return this; }
+    @Override public SocketChannelConfig setRecvByteBufAllocator(RecvByteBufAllocator value) {
+        if (!(value.newHandle() instanceof RecvByteBufAllocator.ExtendedHandle)) throw new IllegalArgumentException("allocator.newHandle() must return ExtendedHandle");
+        super.setRecvByteBufAllocator(value); return this;
+    }
     @Override public SocketChannelConfig setAutoRead(boolean value) { super.setAutoRead(value); return this; }
     @Override public SocketChannelConfig setAutoClose(boolean value) { super.setAutoClose(value); return this; }
     @Override public SocketChannelConfig setMessageSizeEstimator(MessageSizeEstimator value) { super.setMessageSizeEstimator(value); return this; }

@@ -38,8 +38,10 @@ class VppDetachIT {
                     assertTrue(vpp.destroy(), "could not stop the test VPP");
                     assertNotNull(failure.get(5, TimeUnit.SECONDS));
                     assertTrue(channel.closeFuture().await(5, TimeUnit.SECONDS));
-                    assertTrue(write.isDone());
+                    // AbstractUnsafe completes closeFuture before failing the outbound buffer.
+                    assertTrue(write.await(5, TimeUnit.SECONDS));
                     assertFalse(write.isSuccess());
+                    group.next().submit(() -> { }).sync();
                     assertTrue(runtime.metrics().ioFailures() > 0);
                 } finally {
                     if (peer != null) peer.close();

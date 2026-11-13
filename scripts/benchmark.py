@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run equal-budget epoll/VCL echo measurements over the same veth, across net namespaces."""
+"""Run epoll/VCL echo measurements with explicit CPU placement across net namespaces."""
 import argparse
 import csv
 import ctypes
@@ -39,7 +39,10 @@ def disable_offloads(interface):
 
 
 def run(args, **kwargs):
-    return subprocess.run([str(a) for a in args], check=True, text=True, capture_output=True, **kwargs).stdout
+    result = subprocess.run([str(a) for a in args], text=True, capture_output=True, **kwargs)
+    if result.returncode:
+        raise RuntimeError(f'Command failed ({result.returncode}): {args}\n{result.stdout}{result.stderr}')
+    return result.stdout
 
 
 def cpu_seconds(pid):
@@ -108,6 +111,10 @@ def main():
     parser.add_argument('--repeats', type=int, default=3)
     parser.add_argument('--output', default='target/benchmark')
     parser.add_argument('--scenario', choices=[x[0] for x in SCENARIOS])
+    parser.add_argument('--client-cpu', type=int, help='client CPU (default: first allowed CPU)')
+    parser.add_argument('--server-cpu', type=int, help='server JVM CPU (default: second allowed CPU)')
+    parser.add_argument('--vpp-cpu', type=int, help='VPP CPU (default: share the server JVM CPU)')
+    parser.add_argument('--link-type', choices=('veth', 'netkit'), default='veth', help='cross-namespace link; netkit uses L2 mode')
     options = parser.parse_args()
     if min(options.warmup, options.seconds, options.repeats) < 1:
         parser.error('warmup/seconds/repeats must be positive')
@@ -120,7 +127,13 @@ def main():
                  '-cp', cp, 'dev.vcl.netty.benchmark.TransportBenchmark']
     cpus = sorted(os.sched_getaffinity(0))
     if len(cpus) < 2: raise RuntimeError('At least two allowed CPUs are needed')
-    client_cpu, server_cpu = cpus[:2]
+    client_cpu = options.client_cpu if options.client_cpu is not None else cpus[0]
+    server_cpu = options.server_cpu if options.server_cpu is not None else cpus[1]
+    vpp_cpu = options.vpp_cpu if options.vpp_cpu is not None else server_cpu
+    if any(cpu not in cpus for cpu in (client_cpu, server_cpu, vpp_cpu)):
+        parser.error('selected CPUs must be in the allowed CPU affinity set')
+    if client_cpu in (server_cpu, vpp_cpu):
+        parser.error('client CPU must differ from server JVM and VPP CPUs')
     prefix = Path(os.environ.get('VPP_PREFIX', '/usr'))
     vpp = Path(os.environ.get('VPP_BIN', prefix / 'bin/vpp'))
     ctl = Path(os.environ.get('VPP_CTL', prefix / 'bin/vppctl'))
@@ -142,7 +155,8 @@ def main():
 
     try:
         run(['ip', 'link', 'set', 'lo', 'up'])
-        run(['ip', 'link', 'add', 'nvclient', 'type', 'veth', 'peer', 'name', 'nvserver'])
+        link_args = ['veth'] if options.link_type == 'veth' else ['netkit', 'mode', 'l2']
+        run(['ip', 'link', 'add', 'nvclient', 'type', *link_args, 'peer', 'name', 'nvserver'])
         run(['ip', 'link', 'set', 'nvserver', 'netns', holder_pid])
         run(['ip', 'addr', 'add', '10.223.0.1/24', 'dev', 'nvclient'])
         run(['ip', 'link', 'set', 'nvclient', 'up'])
@@ -154,16 +168,23 @@ def main():
             'date_utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'uname': list(os.uname()),
             'java': subprocess.run([java, '-version'], text=True, capture_output=True).stderr,
             'cpu_model': next((line.split(':', 1)[1].strip() for line in Path('/proc/cpuinfo').read_text().splitlines() if line.startswith('model name')), ''),
-            'allowed_cpus': cpus, 'client_cpu': client_cpu, 'server_cpu': server_cpu,
+            'allowed_cpus': cpus, 'client_cpu': client_cpu, 'server_cpu': server_cpu, 'vpp_cpu': vpp_cpu,
+            'cpu_topology': {str(cpu): {key: Path(f'/sys/devices/system/cpu/cpu{cpu}/topology/{key}').read_text().strip()
+                                      for key in ('physical_package_id', 'core_id', 'thread_siblings_list')}
+                             for cpu in sorted({client_cpu, server_cpu, vpp_cpu})},
             'cpu_max': Path('/sys/fs/cgroup/cpu.max').read_text().strip(),
             'server_workers': 1, 'heap_mib': 256, 'gc': 'G1, one parallel and one concurrent GC thread',
             'af_packet': {'version': 2, 'rx_tx_frame_bytes': 2048, 'rx_tx_frames_per_block': 1024, 'checksum_gso': False},
             'client_offloads': client_offloads, 'server_offloads': server_offloads,
-            'network': 'epoll client in netns A -> veth -> kernel epoll OR VPP AF_PACKET/VCL server in netns B',
-            'server_budget': 'one shared CPU for server JVM plus VPP; no VPP in epoll samples',
+            'network': f'epoll client in netns A -> {options.link_type} (L2) -> kernel epoll OR VPP AF_PACKET/VCL server in netns B',
+            'link_type': options.link_type,
+            'server_budget': ('one shared CPU for server JVM plus VPP; no VPP in epoll samples' if vpp_cpu == server_cpu
+                              else 'one CPU for server JVM plus a separate VPP CPU; no VPP in epoll samples'),
             'options': vars(options),
             'source_sha256': {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                               for directory in ('src/main', 'src/benchmark') for p in sorted((ROOT / directory).rglob('*.java'))},
+            'script_sha256': {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
+                              for p in (Path(__file__), ROOT / 'scripts/benchmark.sh')},
         }
         (output / 'environment.json').write_text(json.dumps(metadata, indent=2))
         scenarios = [x for x in SCENARIOS if options.scenario is None or x[0] == options.scenario]
@@ -175,7 +196,7 @@ def main():
                 else:
                     startup = output / 'startup.conf'
                     startup.write_text(f'''unix {{ nodaemon cli-listen {output}/cli.sock runtime-dir {output}/vpp }}
-cpu {{ main-core {server_cpu} }}
+cpu {{ main-core {vpp_cpu} }}
 api-segment {{ prefix netty-vcl-bench }}
 statseg {{ socket-name {output}/stats.sock }}
 plugins {{ path {plugins} plugin default {{ disable }} plugin af_packet_plugin.so {{ enable }} }}
@@ -183,7 +204,7 @@ session {{ enable use-app-socket-api evt_qs_memfd_seg }}
 buffers {{ buffers-per-numa 1024 default data-size 2048 }}
 ''')
                     vpp_log = open(output / f'vpp-{repeat}.log', 'w')
-                    vpp_process = subprocess.Popen(peer_prefix + ['taskset', '-c', str(server_cpu), str(vpp), '-c', str(startup)],
+                    vpp_process = subprocess.Popen(peer_prefix + ['taskset', '-c', str(vpp_cpu), str(vpp), '-c', str(startup)],
                                                    env=env, stdout=vpp_log, stderr=subprocess.STDOUT)
                     deadline = time.monotonic() + 10
                     while True:
@@ -191,7 +212,7 @@ buffers {{ buffers-per-numa 1024 default data-size 2048 }}
                         try:
                             version = cli('show', 'version')
                             if 'vpp v25.10' in version: break
-                        except subprocess.CalledProcessError: pass
+                        except RuntimeError: pass
                         if time.monotonic() > deadline: raise TimeoutError('VPP startup timeout')
                         time.sleep(.05)
                     metadata['vpp_version'] = version.strip()

@@ -1,0 +1,22 @@
+              Name               Idx    State  MTU (L3/IP4/IP6/MPLS)     Counter          Count     
+host-nvserver                     1      up          9000/0/0/0     rx packets              12432037
+                                                                    rx bytes             15586931054
+                                                                    tx packets              11625368
+                                                                    tx bytes             15533797320
+                                                                    drops                          1
+                                                                    ip4                     12432035
+                                                                    ip6                            1
+local0                            0     down          0/0/0/0       
+   Count                  Node                              Reason               Severity 
+         1             arp-reply                       ARP replies sent            info   
+  11625326           session-queue                   Packets transmitted           info   
+        41            tcp4-listen                       SYNs received              info   
+        41          tcp4-rcv-process                  Pure ACKs received           info   
+        41          tcp4-rcv-process                 Connections accepted          info   
+  10609734          tcp4-established             Packets pushed into rx fifo       info   
+     81025          tcp4-established           OOO packets pushed into rx fifo     warn   
+         1          tcp4-established                     Old segment               warn   
+   1741111          tcp4-established                  Pure ACKs received           info   
+        41          tcp4-established                    FINs received              info   
+  11625367            tcp4-output                        Packets sent              info   
+         1           ethernet-input                        no error                error  

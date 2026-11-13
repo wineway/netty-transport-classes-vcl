@@ -1,0 +1,123 @@
+EAL: Detected CPU lcores: 16
+EAL: Detected NUMA nodes: 1
+EAL: Detected static linkage of DPDK
+EAL: Selected IOVA mode 'VA'
+Set io packet forwarding mode
+Interactive-mode selected
+testpmd: mlockall() failed with error "Cannot allocate memory"
+testpmd: create a new mbuf pool <mb_pool_0>: n=2048, size=2176, socket=0
+testpmd: preferred mempool ops selected: ring_mp_mc
+Configuring Port 0 (socket 0)
+Port 0: 00:00:00:00:00:00
+Checking link statuses...
+Done
+testpmd> show port info all
+
+********************* Infos for port 0  *********************
+MAC address: 00:00:00:00:00:00
+Device name: net_ring0
+Driver name: net_ring
+Firmware-version: not available
+Devargs: 
+Connect to socket: 0
+memory allocation on the socket: 0
+Link status: up
+Link speed: 10 Gbps
+Link duplex: full-duplex
+Autoneg status: Off
+MTU: 1500
+Promiscuous mode: enabled
+Allmulticast mode: enabled
+Maximum number of MAC addresses: 1
+Maximum number of MAC addresses of hash filtering: 0
+VLAN offload: 
+  strip off, filter off, extend off, qinq strip off
+No RSS offload flow type is supported.
+Minimum size of RX buffer: 0
+Maximum configurable length of RX packet: 4294967295
+Maximum configurable size of LRO aggregated packet: 0
+Current number of RX queues: 1
+Max possible RX queues: 16
+Max possible number of RXDs per queue: 65535
+Min possible number of RXDs per queue: 0
+RXDs number alignment: 1
+Current number of TX queues: 1
+Max possible TX queues: 16
+Max possible number of TXDs per queue: 65535
+Min possible number of TXDs per queue: 0
+TXDs number alignment: 1
+Max segment number per packet: 65535
+Max segment number per MTU/TSO: 65535
+Device capabilities: 0x0( )
+Device error handling mode: none
+Device private info:
+  none
+testpmd> set txpkts 1024
+testpmd> start tx_first
+io packet forwarding - ports=1 - cores=1 - streams=1 - NUMA support enabled, MP allocation mode: native
+Logical Core 1 (socket 0) forwards packets on 1 streams:
+  RX P=0/Q=0 (socket 0) -> TX P=0/Q=0 (socket 0) peer=02:00:00:00:00:00
+
+  io packet forwarding packets/burst=32
+  nb forwarding cores=1 - nb forwarding ports=1
+  port 0: RX queue number: 1 Tx queue number: 1
+    Rx offloads=0x0 Tx offloads=0x0
+    RX queue: 0
+      RX desc=0 - RX free threshold=0
+      RX threshold registers: pthresh=0 hthresh=0  wthresh=0
+      RX Offloads=0x0
+    TX queue: 0
+      TX desc=0 - TX free threshold=0
+      TX threshold registers: pthresh=0 hthresh=0  wthresh=0
+      TX offloads=0x0 - TX RS bit threshold=0
+testpmd> show port stats all
+
+  ######################## NIC statistics for port 0  ########################
+  RX-packets: 2007879552 RX-missed: 0          RX-bytes:  0
+  RX-errors: 0
+  RX-nombuf:  0         
+  TX-packets: 2007879584 TX-errors: 0          TX-bytes:  0
+
+  Throughput (since last show)
+  Rx-pps:            0          Rx-bps:            0
+  Tx-pps:            0          Tx-bps:            0
+  ############################################################################
+testpmd> show port stats all
+
+  ######################## NIC statistics for port 0  ########################
+  RX-packets: 6025084832 RX-missed: 0          RX-bytes:  0
+  RX-errors: 0
+  RX-nombuf:  0         
+  TX-packets: 6025084864 TX-errors: 0          TX-bytes:  0
+
+  Throughput (since last show)
+  Rx-pps:    401706594          Rx-bps:            0
+  Tx-pps:    401706594          Tx-bps:            0
+  ############################################################################
+testpmd> stop
+Telling cores to stop...
+Waiting for lcores to finish...
+
+  ---------------------- Forward statistics for port 0  ----------------------
+  RX-packets: 6025206592     RX-dropped: 0             RX-total: 6025206592
+  TX-packets: 6025206624     TX-dropped: 0             TX-total: 6025206624
+  ----------------------------------------------------------------------------
+
+  +++++++++++++++ Accumulated forward statistics for all ports+++++++++++++++
+  RX-packets: 6025206592     RX-dropped: 0             RX-total: 6025206592
+  TX-packets: 6025206624     TX-dropped: 0             TX-total: 6025206624
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Done.
+testpmd> quit
+
+Stopping port 0...
+Stopping ports...
+Done
+
+Shutting down port 0...
+Closing ports...
+Port 0 is closed
+Done
+
+Bye...

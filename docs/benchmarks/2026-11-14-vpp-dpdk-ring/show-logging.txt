@@ -1,0 +1,144 @@
+2026/11/14 00:56:35:307 notice     plugin/load    Plugin disabled (default): abf_plugin.so
+2026/11/14 00:56:35:307 notice     plugin/load    Plugin disabled (default): acl_plugin.so
+2026/11/14 00:56:35:308 notice     plugin/load    Plugin disabled (default): adl_plugin.so
+2026/11/14 00:56:35:308 notice     plugin/load    Plugin disabled (default): af_packet_plugin.so
+2026/11/14 00:56:35:308 notice     plugin/load    Plugin disabled (default): af_xdp_plugin.so
+2026/11/14 00:56:35:308 notice     plugin/load    Plugin disabled (default): arping_plugin.so
+2026/11/14 00:56:35:308 notice     plugin/load    Plugin disabled (default): auto_sdl_plugin.so
+2026/11/14 00:56:35:308 notice     plugin/load    Plugin disabled (default): auto_sdl_unittest_plugin.so
+2026/11/14 00:56:35:309 notice     plugin/load    Plugin disabled (default): avf_plugin.so
+2026/11/14 00:56:35:309 notice     plugin/load    Plugin disabled (default): bpf_trace_filter_plugin.so
+2026/11/14 00:56:35:309 notice     plugin/load    Plugin disabled (default): cdp_plugin.so
+2026/11/14 00:56:35:309 notice     plugin/load    Plugin disabled (default): cnat_plugin.so
+2026/11/14 00:56:35:309 notice     plugin/load    Plugin disabled (default): crypto_sw_scheduler_plugin.so
+2026/11/14 00:56:35:309 notice     plugin/load    Plugin disabled (default): ct6_plugin.so
+2026/11/14 00:56:35:309 notice     plugin/load    Plugin disabled (default): det44_plugin.so
+2026/11/14 00:56:35:309 notice     plugin/load    Plugin disabled (default): dev_ena_plugin.so
+2026/11/14 00:56:35:310 notice     plugin/load    Plugin disabled (default): dev_iavf_plugin.so
+2026/11/14 00:56:35:310 notice     plugin/load    Plugin disabled (default): dhcp_plugin.so
+2026/11/14 00:56:35:310 notice     plugin/load    Plugin disabled (default): dma_intel_plugin.so
+2026/11/14 00:56:35:310 notice     plugin/load    Plugin disabled (default): dns_plugin.so
+2026/11/14 00:56:35:318 notice     plugin/load    Loaded plugin: dpdk_plugin.so (Data Plane Development Kit (DPDK))
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): dslite_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): fateshare_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): flowprobe_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): geneve_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): gre_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): gtpu_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): hs_apps_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): hsi_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): http_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): http_static_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): http_unittest_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): idpf_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): igmp_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): ikev2_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): ila_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): ioam_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): ip_session_redirect_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): l2tp_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): l3xc_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): lacp_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): lb_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): linux_cp_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): linux_cp_unittest_plugin.so
+2026/11/14 00:56:35:319 notice     plugin/load    Plugin disabled (default): linux_nl_plugin.so
+2026/11/14 00:56:35:320 notice     plugin/load    Plugin disabled (default): lisp_plugin.so
+2026/11/14 00:56:35:320 notice     plugin/load    Plugin disabled (default): lisp_unittest_plugin.so
+2026/11/14 00:56:35:320 notice     plugin/load    Plugin disabled (default): lldp_plugin.so
+2026/11/14 00:56:35:320 notice     plugin/load    Plugin disabled (default): mactime_plugin.so
+2026/11/14 00:56:35:320 notice     plugin/load    Plugin disabled (default): map_plugin.so
+2026/11/14 00:56:35:320 notice     plugin/load    Plugin disabled (default): mdata_plugin.so
+2026/11/14 00:56:35:320 notice     plugin/load    Plugin disabled (default): memif_plugin.so
+2026/11/14 00:56:35:320 notice     plugin/load    Plugin disabled (default): mss_clamp_plugin.so
+2026/11/14 00:56:35:320 notice     plugin/load    Plugin disabled (default): nat44_ei_plugin.so
+2026/11/14 00:56:35:320 notice     plugin/load    Plugin disabled (default): nat64_plugin.so
+2026/11/14 00:56:35:320 notice     plugin/load    Plugin disabled (default): nat66_plugin.so
+2026/11/14 00:56:35:320 notice     plugin/load    Plugin disabled (default): nat_plugin.so
+2026/11/14 00:56:35:320 notice     plugin/load    Plugin disabled (default): npt66_plugin.so
+2026/11/14 00:56:35:320 notice     plugin/load    Plugin disabled (default): nsh_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): nsim_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): osi_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Loaded plugin: ping_plugin.so (Ping (ping))
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): pnat_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): ppp_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): pppoe_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): prom_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): pvti_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): quic_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): quic_quicly_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): rdma_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): sflow_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): srmpls_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): srv6ad_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): srv6adflow_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): srv6am_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): srv6as_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): srv6mobile_plugin.so
+2026/11/14 00:56:35:321 notice     plugin/load    Plugin disabled (default): stn_plugin.so
+2026/11/14 00:56:35:322 notice     plugin/load    Plugin disabled (default): svs_plugin.so
+2026/11/14 00:56:35:322 notice     plugin/load    Plugin disabled (default): tlsopenssl_plugin.so
+2026/11/14 00:56:35:322 notice     plugin/load    Plugin disabled (default): tlspicotls_plugin.so
+2026/11/14 00:56:35:322 notice     plugin/load    Plugin disabled (default): urpf_plugin.so
+2026/11/14 00:56:35:322 notice     plugin/load    Plugin disabled (default): vhost_plugin.so
+2026/11/14 00:56:35:322 notice     plugin/load    Plugin disabled (default): vmxnet3_plugin.so
+2026/11/14 00:56:35:322 notice     plugin/load    Plugin disabled (default): vrrp_plugin.so
+2026/11/14 00:56:35:322 notice     plugin/load    Plugin disabled (default): vxlan-gpe_plugin.so
+2026/11/14 00:56:35:322 notice     plugin/load    Plugin disabled (default): vxlan_plugin.so
+2026/11/14 00:56:35:322 notice     plugin/load    Plugin disabled (default): wireguard_plugin.so
+2026/11/14 00:56:35:337 warn       buffer         numa[0] falling back to non-hugepage backed buffer pool (vlib_physmem_shared_map_create: pmalloc_map_pages: failed to mmap 10 pages at 0x1000000000 fd 4 numa 0 flags 0x11: Cannot allocate memory)
+2026/11/14 00:56:35:359 notice     dpdk           EAL init args: --no-pci -m 256 --no-huge --no-shconf --file-prefix netty-vpp-ring --vdev net_ring0 --no-telemetry 
+2026/11/14 00:56:35:367 warn       dpdk           [0] unknown driver 'net_ring'
+2026/11/14 00:56:35:367 error      dpdk           [0] rte_eth_dev_set_mtu failed (mtu 8996, rv -95)
+2026/11/14 00:56:35:367 notice     vat-plug/load  Loaded plugin: vlib_vlibapi_test_plugin.so
+2026/11/14 00:56:35:367 notice     vat-plug/load  Loaded plugin: vnet_arp_test_plugin.so
+2026/11/14 00:56:35:368 notice     vat-plug/load  Loaded plugin: vnet_interface_test_plugin.so
+2026/11/14 00:56:35:368 notice     vat-plug/load  Loaded plugin: vnet_ip6_nd_test_plugin.so
+2026/11/14 00:56:35:368 notice     vat-plug/load  Loaded plugin: vnet_ip_test_plugin.so
+2026/11/14 00:56:35:368 notice     vat-plug/load  Loaded plugin: vnet_ipsec_test_plugin.so
+2026/11/14 00:56:35:368 notice     vat-plug/load  Loaded plugin: vnet_l2_test_plugin.so
+2026/11/14 00:56:35:368 notice     vat-plug/load  Loaded plugin: vnet_session_test_plugin.so
+2026/11/14 00:56:35:368 notice     vat-plug/load  Loaded plugin: vpp_api_test_plugin.so
+2026/11/14 00:56:35:368 error      vat-plug/load  vat_plugin_register: acl plugin not loaded...
+2026/11/14 00:56:35:368 error      vat-plug/load  vat_plugin_register: adl plugin not loaded...
+2026/11/14 00:56:35:368 error      vat-plug/load  vat_plugin_register: af_xdp plugin not loaded...
+2026/11/14 00:56:35:368 error      vat-plug/load  vat_plugin_register: arping plugin not loaded...
+2026/11/14 00:56:35:368 error      vat-plug/load  vat_plugin_register: avf plugin not loaded...
+2026/11/14 00:56:35:368 error      vat-plug/load  vat_plugin_register: cdp plugin not loaded...
+2026/11/14 00:56:35:368 error      vat-plug/load  vat_plugin_register: ct6 plugin not loaded...
+2026/11/14 00:56:35:368 error      vat-plug/load  vat_plugin_register: dhcp plugin not loaded...
+2026/11/14 00:56:35:368 error      vat-plug/load  vat_plugin_register: dns plugin not loaded...
+2026/11/14 00:56:35:368 error      vat-plug/load  vat_plugin_register: flowprobe plugin not loaded...
+2026/11/14 00:56:35:368 error      vat-plug/load  vat_plugin_register: geneve plugin not loaded...
+2026/11/14 00:56:35:368 error      vat-plug/load  vat_plugin_register: gtpu plugin not loaded...
+2026/11/14 00:56:35:368 error      vat-plug/load  vat_plugin_register: http_static plugin not loaded...
+2026/11/14 00:56:35:368 error      vat-plug/load  vat_plugin_register: idpf plugin not loaded...
+2026/11/14 00:56:35:368 error      vat-plug/load  vat_plugin_register: ikev2 plugin not loaded...
+2026/11/14 00:56:35:368 error      vat-plug/load  pot_vat_plugin_register: pot plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: ip_session_redirect plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: l2tp plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: lacp plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: lb plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register_gpe: lisp_gpe plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: lldp plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: mactime plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: mdata plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: memif plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: nsh plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: nsim plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: pppoe plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: rdma plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: sflow plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: sr_mpls plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: stn plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: tls_openssl plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: vmxnet3 plugin not loaded...
+2026/11/14 00:56:35:369 error      vat-plug/load  vat_plugin_register: vrrp plugin not loaded...
+2026/11/14 00:56:35:370 notice     dpdk           EAL: Detected CPU lcores: 16
+2026/11/14 00:56:35:370 notice     dpdk           EAL: Detected NUMA nodes: 1
+2026/11/14 00:56:35:370 notice     dpdk           EAL: Detected static linkage of DPDK
+2026/11/14 00:56:35:370 notice     dpdk           EAL: Selected IOVA mode 'VA'
+2026/11/14 00:56:35:370 notice     dpdk           EAL: VFIO support not initialized
+2026/11/14 00:56:35:370 notice     dpdk           EAL: Couldn't map new region for DMA
+2026/11/14 00:56:35:408 error      interface      hw_add_del_mac_address: dpdk_add_del_mac_address: mac address add/del failed: -28
+2026/11/14 00:56:35:408 notice     dpdk           ETHDEV: Port 0: MAC address array full

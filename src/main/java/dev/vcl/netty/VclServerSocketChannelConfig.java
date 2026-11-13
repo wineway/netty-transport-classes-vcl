@@ -4,19 +4,23 @@ import io.netty.buffer.ByteBufAllocator;
 import io.netty.channel.*;
 import io.netty.channel.socket.ServerSocketChannelConfig;
 import java.util.Map;
+import io.netty.util.NetUtil;
 
 /** Native socket options are rejected until their VPP behavior is verified. */
 @SuppressWarnings("deprecation")
 final class VclServerSocketChannelConfig extends DefaultChannelConfig implements ServerSocketChannelConfig {
     private final VclServerSocketChannel channel;
-    VclServerSocketChannelConfig(VclServerSocketChannel channel) { super(channel); this.channel = channel; }
+    VclServerSocketChannelConfig(VclServerSocketChannel channel) { super(channel, new ServerChannelRecvByteBufAllocator()); this.channel = channel; }
     private static UnsupportedOperationException unsupported() { return new UnsupportedOperationException("Native socket option is not supported by this VCL transport"); }
     @Override protected void autoReadCleared() { channel.autoReadCleared(); }
     @Override public ServerSocketChannelConfig setConnectTimeoutMillis(int value) { super.setConnectTimeoutMillis(value); return this; }
     @Override public ServerSocketChannelConfig setMaxMessagesPerRead(int value) { super.setMaxMessagesPerRead(value); return this; }
     @Override public ServerSocketChannelConfig setWriteSpinCount(int value) { super.setWriteSpinCount(value); return this; }
     @Override public ServerSocketChannelConfig setAllocator(ByteBufAllocator value) { super.setAllocator(value); return this; }
-    @Override public ServerSocketChannelConfig setRecvByteBufAllocator(RecvByteBufAllocator value) { super.setRecvByteBufAllocator(value); return this; }
+    @Override public ServerSocketChannelConfig setRecvByteBufAllocator(RecvByteBufAllocator value) {
+        if (!(value.newHandle() instanceof RecvByteBufAllocator.ExtendedHandle)) throw new IllegalArgumentException("allocator.newHandle() must return ExtendedHandle");
+        super.setRecvByteBufAllocator(value); return this;
+    }
     @Override public ServerSocketChannelConfig setAutoRead(boolean value) { super.setAutoRead(value); return this; }
     @Override public ServerSocketChannelConfig setAutoClose(boolean value) { super.setAutoClose(value); return this; }
     @Override public ServerSocketChannelConfig setMessageSizeEstimator(MessageSizeEstimator value) { super.setMessageSizeEstimator(value); return this; }
@@ -28,7 +32,7 @@ final class VclServerSocketChannelConfig extends DefaultChannelConfig implements
     @Override public boolean isReuseAddress() { throw unsupported(); }
     @Override public ServerSocketChannelConfig setReuseAddress(boolean value) { throw unsupported(); }
     @Override public ServerSocketChannelConfig setPerformancePreferences(int connectionTime, int latency, int bandwidth) { throw unsupported(); }
-    private volatile int backlog = 128;
+    private volatile int backlog = NetUtil.SOMAXCONN;
     @Override public int getBacklog() { return backlog; }
     @Override public ServerSocketChannelConfig setBacklog(int value) { if (value < 0) throw new IllegalArgumentException("backlog < 0"); backlog = value; return this; }
     @Override public Map<ChannelOption<?>, Object> getOptions() { return getOptions(super.getOptions(), ChannelOption.SO_BACKLOG); }

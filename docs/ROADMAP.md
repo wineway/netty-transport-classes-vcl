@@ -6,7 +6,11 @@
 
 保持 **Java 26、Netty 4.2、纯 FFM、无运行时 JNI/C shim、VCL 数据面、多 worker TCP 服务端**。先补齐正确性证据并定位成本，再做优化和生产验收。
 
-现有功能验收为 4 项单元测试、11 项真实 VPP 集成测试；现有性能报告包含 18 个样本。单核服务端预算下，VCL 的吞吐为 epoll 的 17.2% / 42.6% / 30.0%，p99 RTT 约为 3.9–4.3 倍。
+唤醒去锁实现对齐 epoll 的通知合并及有界关闭等待，新增并发任务、关闭竞争和等待前任务队列复查验证；历史性能报告包含 18 个样本。单核服务端预算下，VCL 的吞吐为 epoll 的 17.2% / 42.6% / 30.0%，p99 RTT 约为 3.9–4.3 倍。
+
+2026-11-14 已按同版本epoll对齐当前支持的TCP语义，最新回归为7项单元测试、20项真实VPP集成测试；完成interest去重、配置读预算、连接/半关闭/Promise顺序和同loop重新注册等修正，见[逐项对照](EPOLL-PARITY.md)。性能收益尚未重新测量。
+
+当前环境另有 [VPP 独立核心复测](BENCHMARK-DEDICATED-VPP.md)，使用 netkit L2 与不同的硬件。它覆盖单 I/O worker 控制组；P1 的双 worker、相同总 CPU 预算矩阵及 profiling 仍需补齐。不能将两份报告的差值直接归因于 VPP 绑核。
 
 VCL JVM 仅使用约 0.054–0.162 核，VPP 使用约 0.836–0.946 核。这个分拆不足以证明 FFM 是主要瓶颈，也不能区分 VPP idle polling 与有效报文处理。AF_PACKET、关闭 offload、VPP/Java 同核和部分 cgroup throttling 均是当前结果的适用条件。
 
@@ -22,7 +26,7 @@ VCL JVM 仅使用约 0.054–0.162 核，VPP 使用约 0.836–0.946 核。这�
 | P3：验证部署形态与扩展性 | 高 | VPP 独占核、NIC/DPDK 对照、多核报告 | 同总 CPU 预算比较，覆盖吞吐/尾延迟/连接速率 | 3–5 |
 | P4：工程化与稳定性 | 高 | 长时压测、故障恢复契约、发布与 CI | 资源稳定、故障有界收敛、交付可复现 | 2–4 |
 
-估算按一名工程师有效工作量计算，不包含硬件准备、外部环境审批及长时测试等待时间。P1/P3 需要额外资源，当前容器总配额 2 核不能完成其独占核对照。
+估算按一名工程师有效工作量计算，不包含硬件准备、外部环境审批及长时测试等待时间。历史容器总配额为 2 核；当前环境可见 16 个逻辑 CPU、8 个物理核且无 cgroup CPU 配额限制，已具备分别绑核的条件。真实 NIC、DPDK 与完整预算矩阵仍需另行验证。
 
 ### P0：正确性和产物边界
 
@@ -50,7 +54,7 @@ VCL JVM 仅使用约 0.054–0.162 核，VPP 使用约 0.836–0.946 核。这�
 
 按下面顺序实施，每项单独提交和比较，避免多个改动同时上线导致无法归因：
 
-1. **interest 去重。** 在 `VclIoHandler` 的 registration 中缓存已成功提交的 mask，mask 未变化时不调用 epoll_ctl；失败不更新缓存。保持零兴趣 DEL、恢复 ADD、关闭幂等和过期 token 防护。
+1. **interest 去重（已随语义对齐实现）。** 与epoll的Channel标志更新一致，在 `AbstractVclChannel` 缓存已成功提交的mask，mask不变不调用epoll_ctl。保持零兴趣DEL、恢复ADD、同loop重新注册、关闭幂等和过期token防护；独立性能收益仍待A/B。
 2. **FFM 控制调用精确化。** 将 epoll_ctl、detached、error 等高频调用从 `invokeWithArguments` 改为精确 MethodHandle 调用；保持现有 read/write/epoll_wait 的精确调用，避免装箱和 varargs 分配。继续使用 FFM errno capture。
 3. **降低事件分发分配。** 根据 allocation profile，减少事件/操作包装对象和热点映射查找的分配；生命周期和陈旧事件处理规则保持一致。
 4. **事件循环参数化。** 新增不可变 `VclIoOptions`，由 `VclIoHandler.newFactory(runtime, options)` 使用；现有工厂签名保留并使用默认值。首版只暴露 `maxEvents=256`、`maxWaitMillis=10`，校验正数和上限；所有等待继续服从 Netty deadline。

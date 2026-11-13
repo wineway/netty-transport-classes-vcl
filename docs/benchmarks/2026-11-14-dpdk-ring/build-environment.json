@@ -1,0 +1,57 @@
+{
+  "dpdk_version": "25.07.0",
+  "archive_url": "https://fast.dpdk.org/rel/dpdk-25.07.tar.xz",
+  "archive_sha256": "6886cbedc350bb8cbef347d10367d6259e36435627fbb27d578adbdc0d3b410d",
+  "configure": [
+    "meson",
+    "setup",
+    "/tmp/netty-vcl-deps/dpdk-25.07/build-ring",
+    "/tmp/netty-vcl-deps/dpdk-25.07",
+    "--buildtype=release",
+    "-Dplatform=native",
+    "-Ddefault_library=static",
+    "-Denable_apps=test-pmd",
+    "-Denable_drivers=bus/vdev,mempool/ring,net/ring",
+    "-Denable_libs=cmdline",
+    "-Dtests=false",
+    "-Denable_docs=false",
+    "-Dexamples="
+  ],
+  "build": [
+    "ninja",
+    "-C",
+    "/tmp/netty-vcl-deps/dpdk-25.07/build-ring",
+    "-j",
+    "6",
+    "app/dpdk-testpmd"
+  ],
+  "gcc": "gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "meson": "1.10.1",
+  "ninja": "1.13.2",
+  "cpu_topology": {
+    "0": {
+      "physical_package_id": "0",
+      "core_id": "0",
+      "thread_siblings_list": "0,8"
+    },
+    "1": {
+      "physical_package_id": "0",
+      "core_id": "1",
+      "thread_siblings_list": "1,9"
+    },
+    "2": {
+      "physical_package_id": "0",
+      "core_id": "2",
+      "thread_siblings_list": "2,10"
+    }
+  },
+  "system": "PRETTY_NAME=\"Ubuntu 26.04 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"26.04\"\nVERSION=\"26.04 LTS (Resolute Raccoon)\"\nVERSION_CODENAME=resolute\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=resolute\nLOGO=ubuntu-logo\n",
+  "notes": [
+    "Source SHA256 matches the VPP v25.10 dpdk.mk checksum.",
+    "The benchmark runs from the build directory; it does not install or replace the system VPP/DPDK.",
+    "testpmd reports mlockall failure; pages remain ordinary pageable memory.",
+    "Ring PMD does not maintain byte counters in this version; logs show zero RX/TX bytes. Packet counts are the measured metric.",
+    "Two preliminary harness attempts were invalid due to sandbox PID mapping and stdio buffering; only target/dr-valid samples are included."
+  ],
+  "memlock_kib": "8192"
+}

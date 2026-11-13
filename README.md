@@ -114,9 +114,15 @@ VPP_PREFIX=/path/to/vpp/usr scripts/verify-vpp.sh
 
 结果及未覆盖内容见 [验证记录](docs/VALIDATION.md)，实现说明见 [架构说明](docs/ARCHITECTURE.md)，后续优先级和交付安排见 [开发计划](docs/ROADMAP.md)。
 
+现有IPv4 TCP行为已按Netty 4.2.7.Final epoll transport class逐项对照，修正接收预算、连接错误、FIN/半关闭和Promise顺序等差异，见[语义对照](docs/EPOLL-PARITY.md)。自定义接收分配器与epoll一样要求 `newHandle()` 返回 `RecvByteBufAllocator.ExtendedHandle`。
+
 ## 与 epoll 比较
 
 对比结果、资源预算和原始数据见 [性能报告](docs/BENCHMARK.md)。基准代码位于 `src/benchmark/java`，epoll native 和 HdrHistogram 只在 `benchmark` profile 中引入，产品 transport 仍直接使用 FFM。
+
+当前环境中 VPP 单独绑核的复测见 [VPP 独立核心性能报告](docs/BENCHMARK-DEDICATED-VPP.md)。该次复测使用 netkit L2 接口对；历史报告使用 veth，硬件及资源预算也不同。
+
+DPDK `net_ring` 软件回环与同期 epoll/VCL TCP 复测见 [DPDK ring 性能参考](docs/BENCHMARK-DPDK-RING.md)。ring 的包/秒速率只覆盖内存队列转发，不代表 VPP/VCL 的 TCP 吞吐。
 
 ```bash
 mvn -Pbenchmark -DskipTests package dependency:build-classpath -Dmdep.outputFile=target/benchmark-classpath
@@ -127,3 +133,13 @@ python3 scripts/summarize-benchmark.py target/benchmark-new/results.json
 基准通过两个网络命名空间和同一 veth 分别运行 epoll 与 VCL，避免 epoll 走 loopback。负载端占一个核，服务端 JVM 与 VPP 合计共享另一个核；默认每组预热 5 秒、测量 10 秒、重复 3 轮，统计吞吐、RTT p50/p99 和进程 CPU 时间。输出目录必须全新。Python 画图需 matplotlib；运行网络拓扑需允许用户/网络命名空间。
 
 本测试是固定连接数与窗口的闭环 echo，不是生产压测或服务端峰值证明。默认三组为：64B/1连接/窗口1、1KiB/32连接/窗口16、64KiB/8连接/窗口4。
+
+CPU 充足时，可显式给 VPP 分配独立核心。先检查 CPU 拓扑，选择不同物理核上的逻辑 CPU；以下示例使用 CPU 0、1、2。`--vpp-cpu` 不指定时仍与服务端 JVM 共享核心。内核不支持 veth 时，可用 `--link-type netkit` 选择 L2 接口对，结果会记录所用接口类型。服务端 CPU 始终计入 JVM + VPP，两种绑核预算不能直接混合比较：
+
+```bash
+VPP_PREFIX=/path/to/vpp/usr scripts/benchmark.sh \
+  --client-cpu 0 --server-cpu 1 --vpp-cpu 2 --link-type netkit \
+  --warmup 5 --seconds 10 --repeats 3 --output target/benchmark-dedicated
+python3 scripts/summarize-benchmark.py target/benchmark-dedicated/results.json \
+  --report target/benchmark-dedicated/report.md --no-plot
+```
