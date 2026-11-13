@@ -1,0 +1,115 @@
+show session verbose
+Connection                                                  State          Rx-f      Tx-f      
+[0:0][T] 10.88.0.1:27917->10.88.0.2:32100                   TIME_WAIT      0         0         
+[0:1][T] 10.88.0.1:9411->10.88.0.2:32100                    TIME_WAIT      0         0         
+[0:2][T] 10.88.0.1:14834->10.88.0.2:32100                   TIME_WAIT      0         0         
+[0:3][T] 10.88.0.1:64104->10.88.0.2:32100                   TIME_WAIT      0         0         
+[0:4][T] 10.88.0.1:50545->10.88.0.2:32100                   TIME_WAIT      0         0         
+[0:5][T] 10.88.0.1:7989->10.88.0.2:32100                    TIME_WAIT      0         0         
+[0:6][T] 10.88.0.1:12994->10.88.0.2:32100                   TIME_WAIT      0         0         
+[0:7][T] 10.88.0.1:5587->10.88.0.2:32100                    TIME_WAIT      0         0         
+[0:8][T] 10.88.0.1:59576->10.88.0.2:32100                   TIME_WAIT      0         0         
+[0:9][T] 10.88.0.1:39425->10.88.0.2:32100                   TIME_WAIT      0         0         
+[0:10][T] 10.88.0.1:41132->10.88.0.2:32103                  CLOSED         0         0         
+[0:11][T] 10.88.0.1:2879->10.88.0.2:32100                   TIME_WAIT      0         0         
+[0:13][T] 10.88.0.1:41854->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:14][T] 10.88.0.1:63636->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:15][T] 10.88.0.1:43784->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:16][T] 10.88.0.1:53959->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:17][T] 10.88.0.1:61818->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:18][T] 10.88.0.1:53905->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:19][T] 10.88.0.1:27324->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:20][T] 10.88.0.1:18155->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:21][T] 10.88.0.1:12110->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:24][T] 10.88.0.1:35663->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:25][T] 10.88.0.1:32866->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:26][T] 10.88.0.1:33881->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:27][T] 10.88.0.1:8676->10.88.0.2:32100                   TIME_WAIT      0         0         
+[0:28][T] 10.88.0.1:33779->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:29][T] 10.88.0.1:30902->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:30][T] 10.88.0.1:39069->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:31][T] 10.88.0.1:16728->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:32][T] 10.88.0.1:50553->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:34][T] 10.88.0.1:28449->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:35][T] 10.88.0.1:48652->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:36][T] 10.88.0.1:25083->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:37][T] 10.88.0.1:61214->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:38][T] 10.88.0.1:3045->10.88.0.2:32100                   TIME_WAIT      0         0         
+[0:39][T] 10.88.0.1:52224->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:40][T] 10.88.0.1:20319->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:41][T] 10.88.0.1:54578->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:44][T] 10.88.0.1:12934->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:45][T] 10.88.0.1:59437->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:46][T] 10.88.0.1:43944->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:47][T] 10.88.0.1:39655->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:48][T] 10.88.0.1:56090->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:49][T] 10.88.0.1:28593->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:50][T] 10.88.0.1:9564->10.88.0.2:32100                   TIME_WAIT      0         0         
+[0:51][T] 10.88.0.1:33035->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:52][T] 10.88.0.1:23485->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:53][T] 10.88.0.1:32848->10.88.0.2:32100                  TIME_WAIT      0         0         
+[0:54][T] 10.88.0.1:48618->10.88.0.2:32100                  TIME_WAIT      0         0         
+Thread 0: active sessions 49
+show errors
+   Count                  Node                              Reason               Severity 
+    427917           session-queue                   Packets transmitted           info   
+        90          tcp4-rcv-process                  Pure ACKs received           info   
+        48          tcp4-rcv-process                    FINs received              info   
+        90           tcp4-syn-sent                    SYN-ACKs received            info   
+    370987          tcp4-established             Packets pushed into rx fifo       info   
+     59103          tcp4-established                  Pure ACKs received           info   
+        42          tcp4-established                    FINs received              info   
+    428097            tcp4-output                        Packets sent              info   
+         1        ip6-local-hop-by-hop       Unknown protocol ip6 local h-b-h pa   error  
+show interface
+              Name               Idx    State  MTU (L3/IP4/IP6/MPLS)     Counter          Count     
+local0                            0     down          0/0/0/0       
+memif1/0                          1      up          9000/0/0/0     rx packets                430361
+                                                                    rx bytes               504440022
+                                                                    tx packets                428098
+                                                                    tx bytes               504289362
+                                                                    drops                          1
+                                                                    ip4                       430360
+                                                                    ip6                            1
+show ip fib
+ipv4-VRF:0, fib_index:0, flow hash:[src dst sport dport proto flowlabel ] epoch:0 flags:none locks:[adjacency:1, default-route:1, session lookup:1, ]
+0.0.0.0/0
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:1 buckets:1 uRPF:0 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+0.0.0.0/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:2 buckets:1 uRPF:1 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+10.88.0.0/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:10 buckets:1 uRPF:10 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+10.88.0.0/24
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:9 buckets:1 uRPF:20 to:[0:0]]
+    [0] [@4]: ipv4-glean: [src:10.88.0.0/24] memif1/0: mtu:9000 next:1 flags:[] ffffffffffff0200000000010806
+10.88.0.1/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:8 buckets:1 uRPF:8 to:[430360:498414832]]
+    [0] [@11]: dpo-receive: 10.88.0.1 on memif1/0
+10.88.0.2/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:17 buckets:1 uRPF:18 to:[428097:498295854]]
+    [0] [@5]: ipv4 via 10.88.0.2 memif1/0: mtu:9000 next:3 flags:[] 0200000000020200000000010800
+10.88.0.255/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:11 buckets:1 uRPF:12 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+224.0.0.0/4
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:4 buckets:1 uRPF:3 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+240.0.0.0/4
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:3 buckets:1 uRPF:2 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+255.255.255.255/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:5 buckets:1 uRPF:4 to:[0:0]]
+    [0] [@0]: dpo-drop ip4

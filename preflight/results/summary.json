@@ -1,0 +1,305 @@
+{
+  "scope": "local VCL cut-through microbenchmark; not Netty or real-network performance",
+  "rows": [
+    {
+      "mode": "interrupt",
+      "test": "rx_microbench",
+      "bytes": 64,
+      "path": "native_copy",
+      "repetitions": 3,
+      "median_operation_mean_ns": 1501.0391,
+      "min_operation_mean_ns": 964.7466,
+      "max_operation_mean_ns": 2262.1411
+    },
+    {
+      "mode": "interrupt",
+      "test": "rx_microbench",
+      "bytes": 64,
+      "path": "borrow_immediate_release",
+      "repetitions": 3,
+      "median_operation_mean_ns": 4437.035,
+      "min_operation_mean_ns": 3951.0801,
+      "max_operation_mean_ns": 5720.7673
+    },
+    {
+      "mode": "interrupt",
+      "test": "tx_microbench",
+      "bytes": 64,
+      "path": "write_once",
+      "repetitions": 3,
+      "median_operation_mean_ns": 1484.4831,
+      "min_operation_mean_ns": 1462.3077,
+      "max_operation_mean_ns": 1712.765
+    },
+    {
+      "mode": "interrupt",
+      "test": "tx_microbench",
+      "bytes": 64,
+      "path": "write_16_calls",
+      "repetitions": 3,
+      "median_operation_mean_ns": 6711.7525,
+      "min_operation_mean_ns": 6642.0202,
+      "max_operation_mean_ns": 7778.1471
+    },
+    {
+      "mode": "interrupt",
+      "test": "tx_microbench",
+      "bytes": 64,
+      "path": "gather_16_segments",
+      "repetitions": 3,
+      "median_operation_mean_ns": 2830.3683,
+      "min_operation_mean_ns": 2712.2313,
+      "max_operation_mean_ns": 2908.0595
+    },
+    {
+      "mode": "interrupt",
+      "test": "rx_microbench",
+      "bytes": 1024,
+      "path": "native_copy",
+      "repetitions": 3,
+      "median_operation_mean_ns": 2071.075,
+      "min_operation_mean_ns": 1774.0252,
+      "max_operation_mean_ns": 2082.7348
+    },
+    {
+      "mode": "interrupt",
+      "test": "rx_microbench",
+      "bytes": 1024,
+      "path": "borrow_immediate_release",
+      "repetitions": 3,
+      "median_operation_mean_ns": 2220.2921,
+      "min_operation_mean_ns": 1831.8902,
+      "max_operation_mean_ns": 2399.0662
+    },
+    {
+      "mode": "interrupt",
+      "test": "tx_microbench",
+      "bytes": 1024,
+      "path": "write_once",
+      "repetitions": 3,
+      "median_operation_mean_ns": 1653.2002,
+      "min_operation_mean_ns": 1628.2239,
+      "max_operation_mean_ns": 1653.9016
+    },
+    {
+      "mode": "interrupt",
+      "test": "tx_microbench",
+      "bytes": 1024,
+      "path": "write_16_calls",
+      "repetitions": 3,
+      "median_operation_mean_ns": 5334.4233,
+      "min_operation_mean_ns": 5085.1617,
+      "max_operation_mean_ns": 5405.8086
+    },
+    {
+      "mode": "interrupt",
+      "test": "tx_microbench",
+      "bytes": 1024,
+      "path": "gather_16_segments",
+      "repetitions": 3,
+      "median_operation_mean_ns": 1986.6418,
+      "min_operation_mean_ns": 1796.8667,
+      "max_operation_mean_ns": 2056.5004
+    },
+    {
+      "mode": "interrupt",
+      "test": "rx_microbench",
+      "bytes": 65536,
+      "path": "native_copy",
+      "repetitions": 3,
+      "median_operation_mean_ns": 3688.0023,
+      "min_operation_mean_ns": 3665.0942,
+      "max_operation_mean_ns": 3696.401
+    },
+    {
+      "mode": "interrupt",
+      "test": "rx_microbench",
+      "bytes": 65536,
+      "path": "borrow_immediate_release",
+      "repetitions": 3,
+      "median_operation_mean_ns": 2247.1885,
+      "min_operation_mean_ns": 2213.1946,
+      "max_operation_mean_ns": 2259.9162
+    },
+    {
+      "mode": "interrupt",
+      "test": "tx_microbench",
+      "bytes": 65536,
+      "path": "write_once",
+      "repetitions": 3,
+      "median_operation_mean_ns": 3560.9511,
+      "min_operation_mean_ns": 3549.3152,
+      "max_operation_mean_ns": 3567.8762
+    },
+    {
+      "mode": "interrupt",
+      "test": "tx_microbench",
+      "bytes": 65536,
+      "path": "write_16_calls",
+      "repetitions": 3,
+      "median_operation_mean_ns": 5898.2684,
+      "min_operation_mean_ns": 5887.7132,
+      "max_operation_mean_ns": 5901.6829
+    },
+    {
+      "mode": "interrupt",
+      "test": "tx_microbench",
+      "bytes": 65536,
+      "path": "gather_16_segments",
+      "repetitions": 3,
+      "median_operation_mean_ns": 3618.0628,
+      "min_operation_mean_ns": 3612.87,
+      "max_operation_mean_ns": 3625.8403
+    },
+    {
+      "mode": "poll",
+      "test": "rx_microbench",
+      "bytes": 64,
+      "path": "native_copy",
+      "repetitions": 3,
+      "median_operation_mean_ns": 1887.4287,
+      "min_operation_mean_ns": 1576.4296,
+      "max_operation_mean_ns": 2938.9709
+    },
+    {
+      "mode": "poll",
+      "test": "rx_microbench",
+      "bytes": 64,
+      "path": "borrow_immediate_release",
+      "repetitions": 3,
+      "median_operation_mean_ns": 3709.5073,
+      "min_operation_mean_ns": 2492.8683,
+      "max_operation_mean_ns": 5611.065
+    },
+    {
+      "mode": "poll",
+      "test": "tx_microbench",
+      "bytes": 64,
+      "path": "write_once",
+      "repetitions": 3,
+      "median_operation_mean_ns": 1182.7722,
+      "min_operation_mean_ns": 962.9488,
+      "max_operation_mean_ns": 2213.7086
+    },
+    {
+      "mode": "poll",
+      "test": "tx_microbench",
+      "bytes": 64,
+      "path": "write_16_calls",
+      "repetitions": 3,
+      "median_operation_mean_ns": 5663.1914,
+      "min_operation_mean_ns": 5530.5796,
+      "max_operation_mean_ns": 5804.2956
+    },
+    {
+      "mode": "poll",
+      "test": "tx_microbench",
+      "bytes": 64,
+      "path": "gather_16_segments",
+      "repetitions": 3,
+      "median_operation_mean_ns": 1762.0372,
+      "min_operation_mean_ns": 1754.59,
+      "max_operation_mean_ns": 2088.9541
+    },
+    {
+      "mode": "poll",
+      "test": "rx_microbench",
+      "bytes": 1024,
+      "path": "native_copy",
+      "repetitions": 3,
+      "median_operation_mean_ns": 1081.9804,
+      "min_operation_mean_ns": 894.2992,
+      "max_operation_mean_ns": 1313.9971
+    },
+    {
+      "mode": "poll",
+      "test": "rx_microbench",
+      "bytes": 1024,
+      "path": "borrow_immediate_release",
+      "repetitions": 3,
+      "median_operation_mean_ns": 1516.8854,
+      "min_operation_mean_ns": 1444.5075,
+      "max_operation_mean_ns": 1594.6565
+    },
+    {
+      "mode": "poll",
+      "test": "tx_microbench",
+      "bytes": 1024,
+      "path": "write_once",
+      "repetitions": 3,
+      "median_operation_mean_ns": 1358.6921,
+      "min_operation_mean_ns": 1221.1355,
+      "max_operation_mean_ns": 1433.8238
+    },
+    {
+      "mode": "poll",
+      "test": "tx_microbench",
+      "bytes": 1024,
+      "path": "write_16_calls",
+      "repetitions": 3,
+      "median_operation_mean_ns": 2557.772,
+      "min_operation_mean_ns": 2358.2479,
+      "max_operation_mean_ns": 4520.056
+    },
+    {
+      "mode": "poll",
+      "test": "tx_microbench",
+      "bytes": 1024,
+      "path": "gather_16_segments",
+      "repetitions": 3,
+      "median_operation_mean_ns": 1518.3937,
+      "min_operation_mean_ns": 786.1639,
+      "max_operation_mean_ns": 1724.3134
+    },
+    {
+      "mode": "poll",
+      "test": "rx_microbench",
+      "bytes": 65536,
+      "path": "native_copy",
+      "repetitions": 3,
+      "median_operation_mean_ns": 5738.3909,
+      "min_operation_mean_ns": 3698.082,
+      "max_operation_mean_ns": 7699.9687
+    },
+    {
+      "mode": "poll",
+      "test": "rx_microbench",
+      "bytes": 65536,
+      "path": "borrow_immediate_release",
+      "repetitions": 3,
+      "median_operation_mean_ns": 5225.985,
+      "min_operation_mean_ns": 4735.9982,
+      "max_operation_mean_ns": 5466.4787
+    },
+    {
+      "mode": "poll",
+      "test": "tx_microbench",
+      "bytes": 65536,
+      "path": "write_once",
+      "repetitions": 3,
+      "median_operation_mean_ns": 7353.1765,
+      "min_operation_mean_ns": 7249.5008,
+      "max_operation_mean_ns": 7691.1988
+    },
+    {
+      "mode": "poll",
+      "test": "tx_microbench",
+      "bytes": 65536,
+      "path": "write_16_calls",
+      "repetitions": 3,
+      "median_operation_mean_ns": 12483.6874,
+      "min_operation_mean_ns": 9724.1916,
+      "max_operation_mean_ns": 12717.5111
+    },
+    {
+      "mode": "poll",
+      "test": "tx_microbench",
+      "bytes": 65536,
+      "path": "gather_16_segments",
+      "repetitions": 3,
+      "median_operation_mean_ns": 3639.8821,
+      "min_operation_mean_ns": 3611.1667,
+      "max_operation_mean_ns": 3642.0701
+    }
+  ]
+}

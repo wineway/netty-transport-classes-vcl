@@ -1,0 +1,47 @@
+{
+  "recorded_at_utc": "2026-11-14T03:31:29.853360+00:00",
+  "java": "openjdk version \"26.0.2.1\" 2026-08-18\nOpenJDK Runtime Environment Temurin-26.0.2.1+1 (build 26.0.2.1+1)\nOpenJDK 64-Bit Server VM Temurin-26.0.2.1+1 (build 26.0.2.1+1, mixed mode, sharing)\n",
+  "vpp_cpu": 0,
+  "jvm_cpus": [
+    1,
+    2,
+    3
+  ],
+  "modes": [
+    "interrupt"
+  ],
+  "topology": "same-host loopback; no physical NIC",
+  "source_sha256": {
+    "src/main/java/me/wineway/vcl/AbstractVclChannel.java": "ebc410378756400eca42b852b0b6868bef8d53e2eb345a1a040927418cf6a276",
+    "src/main/java/me/wineway/vcl/FfmVclApplication.java": "d1f9f290c31748d43b651d5cba7877b6340cfcc4270925bb7f90c31b3f70def2",
+    "src/main/java/me/wineway/vcl/FfmVclIo.java": "7d98fb2ef4a33710171d80a9ff9918574b52f99c882d07b925f42aa4315205bc",
+    "src/main/java/me/wineway/vcl/LinuxWaiter.java": "d234bc5db610da1ac1eb748f02bd0d8d175b0c5e8b028a1da849f99f694befb5",
+    "src/main/java/me/wineway/vcl/NativeCalls.java": "f74e4926c907327eed6ae356717dd67b05fb1dd39fce0fd10654e9de2ad873e0",
+    "src/main/java/me/wineway/vcl/VclAbi.java": "1cba09e75ddab5dc8acc2ba05bcbf0a2d4a8c99c5396ff44961aff20da9c3e59",
+    "src/main/java/me/wineway/vcl/VclApplication.java": "209bd35534ac8554fbeaaed353ca1029ea10db4534e52bb6f526669b2bb50e35",
+    "src/main/java/me/wineway/vcl/VclDatagramChannel.java": "76fb46348d5efc2053447f763a644f0d5e2741d453a6df714d939bc44b82974d",
+    "src/main/java/me/wineway/vcl/VclDatagramChannelConfig.java": "baebfc81fbbdd7dfc8700483d60a3b2d4d9b0f08088abffcefcc8cceafac448d",
+    "src/main/java/me/wineway/vcl/VclException.java": "498c4f12d417a8f856faed1a05ef626c66d8f098d22eec2b452f716bff657965",
+    "src/main/java/me/wineway/vcl/VclIo.java": "910c7e359bf15bf97792ad1225b62ac58187592c7c8a731e3fff0c0b5ef58903",
+    "src/main/java/me/wineway/vcl/VclIoHandler.java": "9df053bda6745de30ef61ce2d4588affb142b818529964cd1c19e0accaa2feb2",
+    "src/main/java/me/wineway/vcl/VclMode.java": "1e7ed1afd40283cf56a5f0e64fdc28ce039e46f76c9f87dcbd0dcbae609b76ac",
+    "src/main/java/me/wineway/vcl/VclRuntime.java": "300b78a78cd98e3395ef1231140fe4bab375fe10bf37f91dc651c56a8bcb00b6",
+    "src/main/java/me/wineway/vcl/VclServer.java": "d7b8c436b54002c0e3313099808e0555f6d59abcff7f124ef9c548ff8e3c9f6b",
+    "src/main/java/me/wineway/vcl/VclServerSocketChannel.java": "eab1eed0d351eeb9f3eb4fc5d46b04b825f30791a03c61549dd90b6de32aa5a9",
+    "src/main/java/me/wineway/vcl/VclServerSocketChannelConfig.java": "e2fdabbfece8f7e97473c04beaf0c73ce1a39e3da73daa68ce739c986e2683ad",
+    "src/main/java/me/wineway/vcl/VclSocketChannel.java": "3f60deb5ba41d081d2f3e2af2f8d28627f2b4516286bcf85574466abceb049c1",
+    "src/main/java/me/wineway/vcl/VclSocketChannelConfig.java": "8da0bd7150863fdb4a10f0892d93158836805da735cbf2e3649015d7cf3b6a1a",
+    "src/main/java/me/wineway/vcl/example/EchoServer.java": "340de3e4b4a62614dfa8d1e603ff5a5ca737783c53f40f96987b247fc3e3f93f",
+    "src/test/java/me/wineway/vcl/AbiTest.java": "628aac2ba4df55c2587c09836c70e8c92b5f32aa1f85f782b7c7d7ec823b1b3f",
+    "src/test/java/me/wineway/vcl/ChannelStateTest.java": "d2eb1458baf75ffd922d5cc74d444f86b52a85569ffc6d95f10e357916f0dc49",
+    "src/test/java/me/wineway/vcl/LinuxWaiterTest.java": "9eec0d7fd3bd29dad49cea82945dc29cf6f52529b5b83f239980a727f7664685",
+    "src/test/java/me/wineway/vcl/RealTransportSupport.java": "fc8eabc241015432406da9df459547a27730916b6aceae491f287bbe3e4fce45",
+    "src/test/java/me/wineway/vcl/RuntimeLifecycleTest.java": "28b1745cb69a4ba4db5e86383f9e9a0f5c0d7fb66b3fe2ed3a865b0948ab0fa8",
+    "src/test/java/me/wineway/vcl/ServerLifecycleTest.java": "82915b3bbfdba3cd7dad40faa92aa323e86093db7ccf0cb4a2c467ac783194a1",
+    "src/test/java/me/wineway/vcl/SimulatedIo.java": "36ab2710da243b61d28ce0defad049121adfdb71a282dabdb23dabd076a51cb4",
+    "src/test/java/me/wineway/vcl/TransportContractIT.java": "dc09ea3f1eb198a46ad4a4105cb264e9fe2dc3eee224ad6bbff486a6d8e7f425"
+  },
+  "library_sha256": "913588bad335df0645cb0acc6129c9b869f1b37ba8bf9c1bfdb8c6008fb0021e",
+  "library_source_commit": "4acb320269bc4f3533e35c80afedac38853b2f60",
+  "patch_sha256": "a766dccf79cfe2cc16c732b4317fd300abe187ccd2c7665f1465cd1601bcac03"
+}

@@ -1,0 +1,5 @@
+{"test":"abi","checks":81,"passed":true}
+{"test":"worker","mode":"poll","index":0,"mq_fd":-1,"detached_query":-95}
+{"test":"udp","ip":"10.77.0.1","source_and_truncation":true,"empty_send_return":0,"empty_received_before_marker":false}
+{"test":"udp","ip":"fd77::1","source_and_truncation":true,"empty_send_return":0,"empty_received_before_marker":false}
+{"test":"probe_complete","passed":true}

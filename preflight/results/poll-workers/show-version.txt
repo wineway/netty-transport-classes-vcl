@@ -1,0 +1,1 @@
+vpp v26.10-release built by root on b2b1fbdd05de at 2026-11-13T17:32:44

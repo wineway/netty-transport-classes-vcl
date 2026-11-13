@@ -1,0 +1,50 @@
+show session verbose
+Thread 0: no sessions
+show errors
+   Count                  Node                              Reason               Severity 
+         1        ip6-local-hop-by-hop       Unknown protocol ip6 local h-b-h pa   error  
+show interface
+              Name               Idx    State  MTU (L3/IP4/IP6/MPLS)     Counter          Count     
+local0                            0     down          0/0/0/0       
+loop0                             1      up          9000/0/0/0     tx packets                     2
+                                                                    tx bytes                     340
+                                                                    drops                          1
+                                                                    ip6                            1
+show ip fib
+ipv4-VRF:0, fib_index:0, flow hash:[src dst sport dport proto flowlabel ] epoch:0 flags:none locks:[default-route:1, session lookup:1, ]
+0.0.0.0/0
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:1 buckets:1 uRPF:0 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+0.0.0.0/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:2 buckets:1 uRPF:1 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+10.77.0.0/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:10 buckets:1 uRPF:10 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+10.77.0.0/24
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:9 buckets:1 uRPF:9 to:[0:0]]
+    [0] [@4]: ipv4-glean: [src:10.77.0.0/24] loop0: mtu:9000 next:1 flags:[] ffffffffffffdead000000000806
+10.77.0.1/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:8 buckets:1 uRPF:8 to:[0:0]]
+    [0] [@11]: dpo-receive: 10.77.0.1 on loop0
+10.77.0.255/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:11 buckets:1 uRPF:12 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+224.0.0.0/4
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:4 buckets:1 uRPF:3 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+240.0.0.0/4
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:3 buckets:1 uRPF:2 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+255.255.255.255/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:5 buckets:1 uRPF:4 to:[0:0]]
+    [0] [@0]: dpo-drop ip4

@@ -1,0 +1,32 @@
+-- Looking for ccache
+-- Looking for ccache - not found
+-- libunwind not found - stack traces disabled
+-- libiberty not found - stack trace demangle disabled
+-- subunit library not found - vapi tests disabled
+-- VPP plugins explicitly disabled
+-- Intel IPSecMB not found
+-- Configuration:
+VPP platform        : default
+VPP version         : 26.10-release
+VPP library version : 26.10
+GIT toplevel dir    : /tmp/vcl-vpp-26.10
+Build type          : release
+C compiler          : /usr/bin/gcc (GNU 15.2.0)
+C flags             : -std=gnu11
+Linker flags (apps) : none
+Linker flags (libs) : none
+Host processor      : x86_64
+Target processor    : x86_64
+Prefix path         : /opt/vpp/external/x86_64 /opt/vpp/optional/x86_64
+Install prefix      : /tmp/vcl26-install
+Library dir         : lib/x86_64-linux-gnu
+Multiarch variants  : x86_64_v3 x86_64_v4
+Plugins             : none
+Drivers             : atlantic iavf ige
+Crypto engines      : native openssl
+Tools               : svmdbtool svmtool vat2 vpp_api_test vpp_get_metrics vpp_get_stats
+                      vpp_prometheus_export vpp_prometheus_push vpp_restart vppctl
+Tests               : test_dump_metrics test_infra test_vat2 test_vppapiclient vpp_json_test
+-- Configuring done (0.4s)
+-- Generating done (0.1s)
+-- Build files have been written to: /tmp/vcl26-build

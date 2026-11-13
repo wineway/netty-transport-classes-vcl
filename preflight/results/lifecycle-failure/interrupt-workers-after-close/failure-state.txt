@@ -1,0 +1,7 @@
+show session verbose
+Thread 0: no sessions
+show app
+Index     Name                Namespace                               
+show errors
+   Count                  Node                              Reason               Severity 
+         4           session-queue                   Packets transmitted           info   

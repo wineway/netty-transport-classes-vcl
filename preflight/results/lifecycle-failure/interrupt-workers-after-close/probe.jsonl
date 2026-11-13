@@ -1,0 +1,57 @@
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.ubuntu.com>
+Enable debuginfod for this session? (y or [n]) [answered N; input not from terminal]
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+Function "os_out_of_memory" not defined.
+Breakpoint 1 (os_out_of_memory) pending.
+warning: Error disabling address space randomization: Function not implemented
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/x86_64-linux-gnu/libthread_db.so.1".
+process 39761 is executing new program: /tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/java
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7f2874adc6c0 (LWP 39764)]
+[New Thread 0x7f28746566c0 (LWP 39765)]
+[New Thread 0x7f28745556c0 (LWP 39766)]
+[New Thread 0x7f28743f96c0 (LWP 39767)]
+[New Thread 0x7f28742f86c0 (LWP 39768)]
+[New Thread 0x7f28741f76c0 (LWP 39769)]
+[New Thread 0x7f28566e56c0 (LWP 39770)]
+[New Thread 0x7f28565e46c0 (LWP 39771)]
+[New Thread 0x7f28564e36c0 (LWP 39772)]
+[New Thread 0x7f28563e26c0 (LWP 39773)]
+[New Thread 0x7f28562e16c0 (LWP 39774)]
+[New Thread 0x7f28561e06c0 (LWP 39775)]
+{"test":"abi","checks":81,"passed":true}
+{"test":"worker","mode":"interrupt","index":0,"mq_fd":4,"detached_query":0}
+[New Thread 0x7f2855ee56c0 (LWP 39776)]
+{"test":"libc_wakeup","iterations":100,"vcl_mq_nested":true,"passed":true}
+[Thread 0x7f2855ee56c0 (LWP 39776) exited]
+{"test":"tcp","ip":"10.77.0.1","copy_and_segments":true}
+{"test":"tcp","ip":"fd77::1","copy_and_segments":true}
+[New Thread 0x7f2855ee56c0 (LWP 39777)]
+[New Thread 0x7f2855de46c0 (LWP 39778)]
+svm_msg_q_timedwait:642: read 9
+[Switching to Thread 0x7f2855ee56c0 (LWP 39777)]
+
+Thread 15 "vcl-probe-0" hit Breakpoint 1, os_out_of_memory () at ../vcl-vpp-26.10/src/vppinfra/unix-misc.c:234
+234	{
+#0  os_out_of_memory () at ../vcl-vpp-26.10/src/vppinfra/unix-misc.c:234
+#1  0x00007f28560741c5 in clib_mem_heap_alloc_inline (heap=<optimized out>, size=<optimized out>, align=<optimized out>, os_out_of_memory_on_failure=<optimized out>) at ../vcl-vpp-26.10/src/vppinfra/mem_dlmalloc.c:376
+#2  clib_mem_heap_realloc_aligned (heap=<optimized out>, p=p@entry=0x7f2814005de0, new_size=4026536168, align=<optimized out>) at ../vcl-vpp-26.10/src/vppinfra/mem_dlmalloc.c:472
+#3  0x00007f28560bf6a3 in _vec_realloc_internal (v=0x7f2814005de8, n_elts=n_elts@entry=335544680, attr=attr@entry=0x7f2855ee4190) at ../vcl-vpp-26.10/src/vppinfra/vec.c:94
+#4  0x00007f28560bf87e in _vec_resize_internal (v=<optimized out>, n_elts=n_elts@entry=335544680, attr=attr@entry=0x7f2855ee4190) at ../vcl-vpp-26.10/src/vppinfra/vec.c:130
+#5  0x00007f2874083382 in _vec_validate (vp=<optimized out>, index=335544679, header_size=0, align=8, heap=0x0, elt_sz=8) at ../vcl-vpp-26.10/src/vppinfra/vec.h:479
+#6  vcl_mq_dequeue_batch (n_max_msg=4294967295, wrk=0x7f2814000b80, mq=0x7f2814005198) at ../vcl-vpp-26.10/src/vcl/vppcom.c:21
+#7  vcl_worker_flush_mq_events (wrk=0x7f2814000b80) at ../vcl-vpp-26.10/src/vcl/vppcom.c:1345
+#8  0x00007f2874084e78 in vppcom_session_accept (ls_handle=16777217, ep=0x0, flags=2048) at ../vcl-vpp-26.10/src/vcl/vppcom.c:2075
+#9  0x00007f285f733124 in ?? ()
+#10 0x0000000000000000 in ?? ()
+#1  0x00007f28560741c5 in clib_mem_heap_alloc_inline (heap=<optimized out>, size=<optimized out>, align=<optimized out>, os_out_of_memory_on_failure=<optimized out>) at ../vcl-vpp-26.10/src/vppinfra/mem_dlmalloc.c:376
+376		os_out_of_memory ();
+heap = <optimized out>
+size = <optimized out>
+align = <optimized out>
+os_out_of_memory_on_failure = <optimized out>

@@ -1,0 +1,2 @@
+{"test":"abi","checks":81,"passed":true}
+{"test":"libc_wakeup","iterations":1000,"vcl_mq_nested":false,"passed":true}

@@ -1,0 +1,6 @@
+{"test":"abi","checks":81,"passed":true}
+allocated VCL heap = 0x7bd6eaa003d0, size 268435456 (0x10000000)
+VCL config was provided. Applying user config
+{"test":"worker","mode":"poll","index":0,"mq_fd":-1,"detached_query":-95}
+{"test":"multiworker","accepted":[32,48],"connections_after_first_listener_close":16}
+{"test":"probe_complete","passed":true}

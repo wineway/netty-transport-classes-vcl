@@ -1,0 +1,7 @@
+seconds=60
+connections=8
+bytes_per_message=1024
+window_per_connection=16
+messages=50456070
+timer_ticks=[6000, 5999]
+timer_max_lag_ns=[57363831, 36838490]

@@ -1,0 +1,9 @@
+{"test":"abi","checks":81,"passed":true}
+allocated VCL heap = 0x7bd7666003d0, size 268435456 (0x10000000)
+VCL config was provided. Applying user config
+{"test":"worker","mode":"interrupt","index":0,"mq_fd":5,"detached_query":0}
+{"test":"libc_wakeup","iterations":100,"vcl_mq_nested":true,"passed":true}
+{"test":"tcp","ip":"10.77.0.1","copy_and_segments":true}
+{"test":"tcp","ip":"fd77::1","copy_and_segments":true}
+{"test":"multiworker","accepted":[32,48],"connections_after_first_listener_close":16}
+{"test":"probe_complete","passed":true}

@@ -1,0 +1,20 @@
+sockets
+  id  listener    filename
+  0   no          /tmp/vcl-benchmark-final/interrupt/primary/memif.sock
+  1   yes (1)     /tmp/vcl-benchmark-final/interrupt/link.sock
+
+interface memif1/0
+  remote-name "VPP 26.10-release"
+  remote-interface "memif1/0"
+  socket-id 1 id 0 mode ethernet
+  flags admin-up connected
+  listener-fd 14 conn-fd 13
+  num-s2m-rings 1 num-m2s-rings 1 buffer-size 0 num-regions 2
+  region 0 size 33024 fd 15
+  region 1 size 16777216 fd 16
+    master-to-slave ring 0:
+      region 0 offset 16512 ring-size 1024 int-fd 18
+      head 1024 tail 0 flags 0x0001 interrupts 0
+    slave-to-master ring 0:
+      region 0 offset 0 ring-size 1024 int-fd 17
+      head 0 tail 0 flags 0x0001 interrupts 0

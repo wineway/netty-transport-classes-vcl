@@ -1,0 +1,129 @@
+130009000-13002a000 rw-s 00000000 00:34 12                               /dev/shm/global_vm
+13002a000-13104b000 rw-s 00000000 00:34 13                               /dev/shm/vpe-api
+13104b000-134009000 rw-s 01042000 00:34 12                               /dev/shm/global_vm
+ffffff000-1000000000 ---p 00000000 00:00 0 
+1000000000-1001000000 rw-s 00000000 00:01 21206                          /memfd:buffers-numa-0 (deleted)
+1001000000-1400000000 ---p 00000000 00:00 0 
+56445d5e1000-56445d5e6000 r--p 00000000 00:35 108662981                  /tmp/vcl26-build/bin/vpp
+56445d5e6000-56445d5fa000 r-xp 00005000 00:35 108662981                  /tmp/vcl26-build/bin/vpp
+56445d5fa000-56445d601000 r--p 00019000 00:35 108662981                  /tmp/vcl26-build/bin/vpp
+56445d601000-56445d602000 r--p 0001f000 00:35 108662981                  /tmp/vcl26-build/bin/vpp
+56445d602000-56445d603000 rw-p 00020000 00:35 108662981                  /tmp/vcl26-build/bin/vpp
+56445d603000-56445d604000 rw-p 00000000 00:00 0 
+7f5bbfe69000-7f5bbfe6a000 ---p 00000000 00:00 0 
+7f5bbfe6a000-7f5bbfeaa000 rw-p 00000000 00:00 0 
+7f5bbfeab000-7f5bbfeac000 ---p 00000000 00:00 0 
+7f5bbfeac000-7f5bc1eb0000 rw-p 00000000 00:00 0 
+7f5bc1eb1000-7f5bc1eb2000 ---p 00000000 00:00 0 
+7f5bc1eb2000-7f5bc2000000 rw-s 00000000 00:01 21207                      /memfd:session: wrk-mqs-segment (deleted)
+7f5bc2001000-7f5bc2002000 ---p 00000000 00:00 0 
+7f5bc2002000-7f5bc2042000 rw-p 00000000 00:00 0 
+7f5bc2043000-7f5bc2044000 ---p 00000000 00:00 0 
+7f5bc2044000-7f5bc4044000 rw-s 00000000 00:01 21205                      /memfd:stat segment (deleted)
+7f5bc4045000-7f5bc4046000 ---p 00000000 00:00 0 
+7f5bc4046000-7f5bc4246000 rw-p 00000000 00:00 0 
+7f5bc4247000-7f5bc4248000 ---p 00000000 00:00 0 
+7f5bc4248000-7f5bd4248000 rw-p 00000000 00:00 0 
+7f5bd425b000-7f5bd425c000 ---p 00000000 00:00 0 
+7f5bd425c000-7f5bd426c000 rw-p 00000000 00:00 0 
+7f5bd426d000-7f5bd426e000 ---p 00000000 00:00 0 
+7f5bd426e000-7f5bd4276000 rw-p 00000000 00:00 0 
+7f5bd4277000-7f5bd4278000 ---p 00000000 00:00 0 
+7f5bd4278000-7f5bd42b8000 rw-p 00000000 00:00 0 
+7f5bd42b9000-7f5bd42ba000 ---p 00000000 00:00 0 
+7f5bd42ba000-7f5bd42c2000 rw-p 00000000 00:00 0 
+7f5bd42c3000-7f5bd42c4000 ---p 00000000 00:00 0 
+7f5bd42c4000-7f5bd42cc000 rw-p 00000000 00:00 0 
+7f5bd42cd000-7f5bd42ce000 ---p 00000000 00:00 0 
+7f5bd42ce000-7f5bd42d6000 rw-p 00000000 00:00 0 
+7f5bd42d7000-7f5bd42d8000 ---p 00000000 00:00 0 
+7f5bd42d8000-7f5bd42e0000 rw-p 00000000 00:00 0 
+7f5bd42e1000-7f5bd42e2000 ---p 00000000 00:00 0 
+7f5bd42e2000-7f5bd42ea000 rw-p 00000000 00:00 0 
+7f5bd42eb000-7f5bd42ec000 ---p 00000000 00:00 0 
+7f5bd42ec000-7f5bd42f4000 rw-p 00000000 00:00 0 
+7f5bd42f5000-7f5bd42f6000 ---p 00000000 00:00 0 
+7f5bd42f6000-7f5bd42fe000 rw-p 00000000 00:00 0 
+7f5bd42ff000-7f5bd4300000 ---p 00000000 00:00 0 
+7f5bd4300000-7f5bd4308000 rw-p 00000000 00:00 0 
+7f5bd4309000-7f5bd430a000 ---p 00000000 00:00 0 
+7f5bd430a000-7f5bd4312000 rw-p 00000000 00:00 0 
+7f5bd4313000-7f5bd4314000 ---p 00000000 00:00 0 
+7f5bd4314000-7f5bd431c000 rw-p 00000000 00:00 0 
+7f5bd431d000-7f5bd431e000 ---p 00000000 00:00 0 
+7f5bd431e000-7f5bd4326000 rw-p 00000000 00:00 0 
+7f5bd4327000-7f5bd4328000 ---p 00000000 00:00 0 
+7f5bd4328000-7f5bd4330000 rw-p 00000000 00:00 0 
+7f5bd4331000-7f5bd4332000 ---p 00000000 00:00 0 
+7f5bd4332000-7f5bd433a000 rw-p 00000000 00:00 0 
+7f5bd433b000-7f5bd433c000 ---p 00000000 00:00 0 
+7f5bd433c000-7f5bd4344000 rw-p 00000000 00:00 0 
+7f5bd4345000-7f5bd4346000 ---p 00000000 00:00 0 
+7f5bd4346000-7f5bd434e000 rw-p 00000000 00:00 0 
+7f5bd434f000-7f5bd4350000 ---p 00000000 00:00 0 
+7f5bd4350000-7f5bd4358000 rw-p 00000000 00:00 0 
+7f5bd4359000-7f5bd435a000 ---p 00000000 00:00 0 
+7f5bd435a000-7f5bd4362000 rw-p 00000000 00:00 0 
+7f5bd4363000-7f5bd4364000 ---p 00000000 00:00 0 
+7f5bd4364000-7f5bd436c000 rw-p 00000000 00:00 0 
+7f5bd436d000-7f5bd436e000 ---p 00000000 00:00 0 
+7f5bd436e000-7f5bd4376000 rw-p 00000000 00:00 0 
+7f5bd4377000-7f5bd4378000 ---p 00000000 00:00 0 
+7f5bd4378000-7f5bd4380000 rw-p 00000000 00:00 0 
+7f5bd4381000-7f5bd4382000 ---p 00000000 00:00 0 
+7f5bd4382000-7f5bd438a000 rw-p 00000000 00:00 0 
+7f5bd438b000-7f5bd4397000 rw-p 00000000 00:00 0 
+7f5bd4397000-7f5bd43a9000 r--p 00000000 00:35 392858663                  /usr/lib/x86_64-linux-gnu/libm.so.6
+7f5bd43a9000-7f5bd4449000 r-xp 00012000 00:35 392858663                  /usr/lib/x86_64-linux-gnu/libm.so.6
+7f5bd4449000-7f5bd44bb000 r--p 000b2000 00:35 392858663                  /usr/lib/x86_64-linux-gnu/libm.so.6
+7f5bd44bb000-7f5bd44bc000 r--p 00123000 00:35 392858663                  /usr/lib/x86_64-linux-gnu/libm.so.6
+7f5bd44bc000-7f5bd44bd000 rw-p 00124000 00:35 392858663                  /usr/lib/x86_64-linux-gnu/libm.so.6
+7f5bd44bd000-7f5bd44c2000 r--p 00000000 00:35 60577738                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libsvm.so.26.10
+7f5bd44c2000-7f5bd44db000 r-xp 00005000 00:35 60577738                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libsvm.so.26.10
+7f5bd44db000-7f5bd44df000 r--p 0001e000 00:35 60577738                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libsvm.so.26.10
+7f5bd44df000-7f5bd44e0000 r--p 00021000 00:35 60577738                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libsvm.so.26.10
+7f5bd44e0000-7f5bd44e1000 rw-p 00022000 00:35 60577738                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libsvm.so.26.10
+7f5bd44e1000-7f5bd4509000 r--p 00000000 00:35 392858659                  /usr/lib/x86_64-linux-gnu/libc.so.6
+7f5bd4509000-7f5bd46a1000 r-xp 00028000 00:35 392858659                  /usr/lib/x86_64-linux-gnu/libc.so.6
+7f5bd46a1000-7f5bd46ef000 r--p 001c0000 00:35 392858659                  /usr/lib/x86_64-linux-gnu/libc.so.6
+7f5bd46ef000-7f5bd46f3000 r--p 0020e000 00:35 392858659                  /usr/lib/x86_64-linux-gnu/libc.so.6
+7f5bd46f3000-7f5bd46f5000 rw-p 00212000 00:35 392858659                  /usr/lib/x86_64-linux-gnu/libc.so.6
+7f5bd46f5000-7f5bd4704000 rw-p 00000000 00:00 0 
+7f5bd470b000-7f5bd4717000 r--p 00000000 00:35 60577734                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvppinfra.so.26.10
+7f5bd4717000-7f5bd47a3000 r-xp 0000c000 00:35 60577734                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvppinfra.so.26.10
+7f5bd47a3000-7f5bd47b5000 r--p 00098000 00:35 60577734                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvppinfra.so.26.10
+7f5bd47b5000-7f5bd47b6000 r--p 000aa000 00:35 60577734                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvppinfra.so.26.10
+7f5bd47b6000-7f5bd47b7000 rw-p 000ab000 00:35 60577734                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvppinfra.so.26.10
+7f5bd47b7000-7f5bd47c9000 r--p 00000000 00:35 60598776                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvlib.so.26.10
+7f5bd47c9000-7f5bd4901000 r-xp 00012000 00:35 60598776                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvlib.so.26.10
+7f5bd4901000-7f5bd4916000 r--p 0014a000 00:35 60598776                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvlib.so.26.10
+7f5bd4916000-7f5bd4918000 r--p 0015f000 00:35 60598776                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvlib.so.26.10
+7f5bd4918000-7f5bd491e000 rw-p 00161000 00:35 60598776                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvlib.so.26.10
+7f5bd491e000-7f5bd491f000 rw-p 00000000 00:00 0 
+7f5bd491f000-7f5bd4923000 r--p 00000000 00:35 60598774                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvlibapi.so.26.10
+7f5bd4923000-7f5bd4930000 r-xp 00004000 00:35 60598774                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvlibapi.so.26.10
+7f5bd4930000-7f5bd4933000 r--p 00011000 00:35 60598774                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvlibapi.so.26.10
+7f5bd4933000-7f5bd4934000 r--p 00013000 00:35 60598774                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvlibapi.so.26.10
+7f5bd4934000-7f5bd4935000 rw-p 00014000 00:35 60598774                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvlibapi.so.26.10
+7f5bd4935000-7f5bd493b000 r--p 00000000 00:35 60598782                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvlibmemory.so.26.10
+7f5bd493b000-7f5bd495c000 r-xp 00006000 00:35 60598782                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvlibmemory.so.26.10
+7f5bd495c000-7f5bd4966000 r--p 00027000 00:35 60598782                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvlibmemory.so.26.10
+7f5bd4966000-7f5bd4967000 r--p 00031000 00:35 60598782                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvlibmemory.so.26.10
+7f5bd4967000-7f5bd4968000 rw-p 00032000 00:35 60598782                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvlibmemory.so.26.10
+7f5bd4968000-7f5bd4a15000 r--p 00000000 00:35 60599026                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvnet.so.26.10
+7f5bd4a15000-7f5bd5878000 r-xp 000ad000 00:35 60599026                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvnet.so.26.10
+7f5bd5878000-7f5bd5a9d000 r--p 00f10000 00:35 60599026                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvnet.so.26.10
+7f5bd5a9d000-7f5bd5ab1000 r--p 01134000 00:35 60599026                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvnet.so.26.10
+7f5bd5ab1000-7f5bd5ae5000 rw-p 01148000 00:35 60599026                   /tmp/vcl26-build/lib/x86_64-linux-gnu/libvnet.so.26.10
+7f5bd5ae5000-7f5bd5b0a000 rw-p 00000000 00:00 0 
+7f5bd5b0a000-7f5bd5b0e000 r--p 00000000 00:00 0                          [vvar]
+7f5bd5b0e000-7f5bd5b10000 r--p 00000000 00:00 0                          [vvar_vclock]
+7f5bd5b10000-7f5bd5b12000 r-xp 00000000 00:00 0                          [vdso]
+7f5bd5b12000-7f5bd5b13000 r--p 00000000 00:35 392858374                  /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f5bd5b13000-7f5bd5b42000 r-xp 00001000 00:35 392858374                  /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f5bd5b42000-7f5bd5b4d000 r--p 00030000 00:35 392858374                  /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f5bd5b4d000-7f5bd5b4f000 r--p 0003b000 00:35 392858374                  /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f5bd5b4f000-7f5bd5b50000 rw-p 0003d000 00:35 392858374                  /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f5bd5b50000-7f5bd5b51000 rw-p 00000000 00:00 0 
+7fffffab6000-7fffffad7000 rw-p 00000000 00:00 0                          [stack]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]

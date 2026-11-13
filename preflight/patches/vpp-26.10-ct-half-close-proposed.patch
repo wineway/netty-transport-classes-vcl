@@ -1,0 +1,28 @@
+--- a/src/vnet/session/application_local.c
++++ b/src/vnet/session/application_local.c
+@@ -828,7 +828,7 @@
+   if (!peer_ct || (peer_ct->flags & CT_CONN_F_HALF_OPEN))
+     return -1;
+   ps = session_get (peer_ct->c_s_index, peer_ct->c_thread_index);
+-  if (ps->session_state >= SESSION_STATE_TRANSPORT_CLOSING)
++  if (ps->session_state > SESSION_STATE_TRANSPORT_CLOSING)
+     return -1;
+   svm_fifo_reset_has_deq_ntf (s->rx_fifo);
+   /* Fifo was filled while notification was propagating, ask for another one */
+@@ -1008,6 +1008,7 @@
+ ct_session_can_tx (session_t *s)
+ {
+   return (s->session_state == SESSION_STATE_READY ||
++          s->session_state == SESSION_STATE_TRANSPORT_CLOSING ||
+ 	  s->session_state == SESSION_STATE_CLOSING ||
+ 	  s->session_state == SESSION_STATE_APP_CLOSED);
+ }
+@@ -1027,7 +1028,7 @@
+   if (!peer_ct)
+     return 0;
+   peer_s = session_get (peer_ct->c_s_index, peer_ct->c_thread_index);
+-  if (peer_s->session_state >= SESSION_STATE_TRANSPORT_CLOSING)
++  if (peer_s->session_state > SESSION_STATE_TRANSPORT_CLOSING)
+     return 0;
+   /* Propagate dequeue ntf request along with enqueue notify */
+   want_deq_ntf = svm_fifo_get_want_deq_ntf (s->tx_fifo);

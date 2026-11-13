@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "probe_complete": false,
+  "scenario": "workers-after-close",
+  "diagnostic": "gdb stopped in os_out_of_memory; runner rejected missing completion marker; native root cause untriaged"
+}

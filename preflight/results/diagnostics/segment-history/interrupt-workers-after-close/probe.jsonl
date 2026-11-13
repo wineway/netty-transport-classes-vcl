@@ -1,0 +1,206 @@
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.ubuntu.com>
+Enable debuginfod for this session? (y or [n]) [answered N; input not from terminal]
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+Function "vcl_segment_attach" not defined.
+Breakpoint 1 (vcl_segment_attach) pending.
+Function "vcl_segment_detach" not defined.
+Breakpoint 2 (vcl_segment_detach) pending.
+warning: Error disabling address space randomization: Function not implemented
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/x86_64-linux-gnu/libthread_db.so.1".
+process 43415 is executing new program: /tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/java
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7f852607c6c0 (LWP 43418)]
+[New Thread 0x7b85257806c0 (LWP 43419)]
+[New Thread 0x7b850971b6c0 (LWP 43420)]
+[New Thread 0x7b83161f66c0 (LWP 43421)]
+[New Thread 0x7b83114e66c0 (LWP 43422)]
+[New Thread 0x7b83108cc6c0 (LWP 43423)]
+[New Thread 0x7b830fcb26c0 (LWP 43424)]
+[New Thread 0x7b830f0986c0 (LWP 43425)]
+[New Thread 0x7b830e47e6c0 (LWP 43426)]
+[New Thread 0x7b830d8646c0 (LWP 43427)]
+[New Thread 0x7b830cc4a6c0 (LWP 43428)]
+[New Thread 0x7b830c0306c0 (LWP 43429)]
+{"test":"abi","checks":81,"passed":true}
+allocated VCL heap = 0x7b82fae003d0, size 268435456 (0x10000000)
+VCL config was provided. Applying user config
+[Switching to Thread 0x7f852607c6c0 (LWP 43418)]
+ATTACH worker=0 handle=fffffffffffffffe name=vpp-mq-seg
+ATTACH worker=0 handle=100000000 name=memfd-4294967296
+{"test":"worker","mode":"interrupt","index":0,"mq_fd":5,"detached_query":0}
+[New Thread 0x7b82f695b6c0 (LWP 43430)]
+{"test":"libc_wakeup","iterations":100,"vcl_mq_nested":true,"passed":true}
+[Thread 0x7b82f695b6c0 (LWP 43430) exited]
+ATTACH worker=0 handle=200000000 name=seg-1-1-2
+ATTACH worker=0 handle=100000200000000 name=seg-1-1-2
+{"test":"tcp","ip":"10.77.0.1","copy_and_segments":true}
+DETACH worker=0 handle=100000200000000
+#0  vcl_segment_detach (segment_handle=72057602627862528) at ../vcl-vpp-26.10/src/vcl/vcl_private.c:534
+#1  0x00007b830b382770 in vcl_session_app_del_segment_handler (wrk=0x7b82fae00680, data=0x7b82f6a0fce2) at ../vcl-vpp-26.10/src/vcl/vppcom.c:1084
+#2  0x00007b830b3847da in vcl_handle_mq_event (wrk=0x7b82fae00680, e=0x7b82f6a0fce0) at ../vcl-vpp-26.10/src/vcl/vppcom.c:1249
+#3  0x00007b830b384be2 in vppcom_wait_for_session_state_change (session_index=4, state=VCL_STATE_LISTEN, wait_for_time=5) at ../vcl-vpp-26.10/src/vcl/vppcom.c:1302
+ATTACH worker=0 handle=200000000 name=seg-1-1-3
+ATTACH worker=0 handle=100000200000000 name=seg-1-1-3
+{"test":"tcp","ip":"fd77::1","copy_and_segments":true}
+[New Thread 0x7b82f695b6c0 (LWP 43431)]
+[New Thread 0x7b82f60386c0 (LWP 43432)]
+[Switching to Thread 0x7b82f695b6c0 (LWP 43431)]
+ATTACH worker=1 handle=200000000 name=memfd-8589934592
+[Switching to Thread 0x7b82f60386c0 (LWP 43432)]
+ATTACH worker=2 handle=400000000 name=memfd-17179869184
+[Switching to Thread 0x7f852607c6c0 (LWP 43418)]
+DETACH worker=0 handle=100000200000000
+#0  vcl_segment_detach (segment_handle=72057602627862528) at ../vcl-vpp-26.10/src/vcl/vcl_private.c:534
+#1  0x00007b830b382770 in vcl_session_app_del_segment_handler (wrk=0x7b82fae00680, data=0x7b82f6a107e2) at ../vcl-vpp-26.10/src/vcl/vppcom.c:1084
+#2  0x00007b830b399a2c in vcl_epoll_wait_handle_mq_event (wrk=0x7b82fae00680, e=0x7b82f6a107e0, events=0x7d35257e5b80, num_ev=0x7b85217826b0) at ../vcl-vpp-26.10/src/vcl/vppcom.c:3639
+#3  0x00007b830b39a285 in vcl_epoll_wait_handle_mq (wrk=0x7b82fae00680, mq=0x7b82fae04f48, events=0x7d35257e5b80, maxevents=128, wait_for_time=0, num_ev=0x7b85217826b0) at ../vcl-vpp-26.10/src/vcl/vppcom.c:3705
+[Switching to Thread 0x7b82f695b6c0 (LWP 43431)]
+ATTACH worker=1 handle=300000000 name=seg-1-2-6
+[Switching to Thread 0x7f852607c6c0 (LWP 43418)]
+DETACH worker=0 handle=200000000
+#0  vcl_segment_detach (segment_handle=8589934592) at ../vcl-vpp-26.10/src/vcl/vcl_private.c:534
+#1  0x00007b830b382770 in vcl_session_app_del_segment_handler (wrk=0x7b82fae00680, data=0x7b82f6a108e2) at ../vcl-vpp-26.10/src/vcl/vppcom.c:1084
+#2  0x00007b830b399a2c in vcl_epoll_wait_handle_mq_event (wrk=0x7b82fae00680, e=0x7b82f6a108e0, events=0x7d35257e5b80, num_ev=0x7b85217826b0) at ../vcl-vpp-26.10/src/vcl/vppcom.c:3639
+#3  0x00007b830b39a285 in vcl_epoll_wait_handle_mq (wrk=0x7b82fae00680, mq=0x7b82fae04f48, events=0x7d35257e5b80, maxevents=128, wait_for_time=0, num_ev=0x7b85217826b0) at ../vcl-vpp-26.10/src/vcl/vppcom.c:3705
+ATTACH worker=0 handle=100000300000000 name=seg-1-2-6
+=================================================================
+==43415==ERROR: AddressSanitizer: use-after-poison on address 0x7b82fae05358 at pc 0x7b830b36e96c bp 0x7b82f695a040 sp 0x7b82f695a030
+READ of size 8 at 0x7b82fae05358 thread T14 (vcl-probe-0)
+ATTACH worker=0 handle=100000500000000 name=seg-1-3-7
+[Switching to Thread 0x7b82f60386c0 (LWP 43432)]
+ATTACH worker=2 handle=500000000 name=seg-1-3-7
+[Switching to Thread 0x7f852607c6c0 (LWP 43418)]
+DETACH worker=0 handle=100000500000000
+#0  vcl_segment_detach (segment_handle=72057615512764416) at ../vcl-vpp-26.10/src/vcl/vcl_private.c:534
+#1  0x00007b830b382770 in vcl_session_app_del_segment_handler (wrk=0x7b82fae00680, data=0x7b82f6a113e2) at ../vcl-vpp-26.10/src/vcl/vppcom.c:1084
+#2  0x00007b830b399a2c in vcl_epoll_wait_handle_mq_event (wrk=0x7b82fae00680, e=0x7b82f6a113e0, events=0x7d35257e5b80, num_ev=0x7b85217fe7b0) at ../vcl-vpp-26.10/src/vcl/vppcom.c:3639
+#3  0x00007b830b39a285 in vcl_epoll_wait_handle_mq (wrk=0x7b82fae00680, mq=0x7b82fae04f48, events=0x7d35257e5b80, maxevents=128, wait_for_time=0, num_ev=0x7b85217fe7b0) at ../vcl-vpp-26.10/src/vcl/vppcom.c:3705
+[Switching to Thread 0x7b82f60386c0 (LWP 43432)]
+DETACH worker=2 handle=500000000
+#0  vcl_segment_detach (segment_handle=21474836480) at ../vcl-vpp-26.10/src/vcl/vcl_private.c:534
+#1  0x00007b830b382770 in vcl_session_app_del_segment_handler (wrk=0x7b82fae01100, data=0x7b82d3c0f6e2) at ../vcl-vpp-26.10/src/vcl/vppcom.c:1084
+#2  0x00007b830b399a2c in vcl_epoll_wait_handle_mq_event (wrk=0x7b82fae01100, e=0x7b82d3c0f6e0, events=0x7d352582fa80, num_ev=0x7b82dc1573b0) at ../vcl-vpp-26.10/src/vcl/vppcom.c:3639
+#3  0x00007b830b39a285 in vcl_epoll_wait_handle_mq (wrk=0x7b82fae01100, mq=0x7b82fae05498, events=0x7d352582fa80, maxevents=128, wait_for_time=0, num_ev=0x7b82dc1573b0) at ../vcl-vpp-26.10/src/vcl/vppcom.c:3705
+[Switching to Thread 0x7f852607c6c0 (LWP 43418)]
+ATTACH worker=0 handle=100000300000001 name=seg-1-2-8
+    #0 0x7b830b36e96b in svm_msg_q_size ../vcl-vpp-26.10/src/svm/message_queue.h:314
+    #1 0x7b830b36ed7a in svm_msg_q_is_empty ../vcl-vpp-26.10/src/svm/message_queue.h:345
+    #2 0x7b830b39a00a in vcl_epoll_wait_handle_mq ../vcl-vpp-26.10/src/vcl/vppcom.c:3684
+    #3 0x7b830b39ae6f in vppcom_epoll_wait_eventfd ../vcl-vpp-26.10/src/vcl/vppcom.c:3791
+    #4 0x7b830b39c33b in vppcom_epoll_wait ../vcl-vpp-26.10/src/vcl/vppcom.c:3930
+    #5 0x7b8510d97ca3  (<unknown module>)
+
+Address 0x7b82fae05358 is a wild pointer inside of access range of size 0x000000000008.
+SUMMARY: AddressSanitizer: use-after-poison ../vcl-vpp-26.10/src/svm/message_queue.h:314 in svm_msg_q_size
+Shadow bytes around the buggy address:
+  0x7b82fae05080: f7 f7 00 00 00 00 00 f7 f7 f7 00 00 00 00 f7 f7
+  0x7b82fae05100: 00 00 00 00 00 00 00 00 f7 f7 00 00 02 f7 f7 f7
+  0x7b82fae05180: 00 00 02 f7 f7 f7 00 00 00 00 00 00 f7 f7 00 00
+  0x7b82fae05200: 00 00 f7 f7 00 00 f7 f7 00 00 00 00 00 00 00 00
+  0x7b82fae05280: 00 00 00 00 00 00 00 00 f7 f7 f7 f7 00 00 02 f7
+=>0x7b82fae05300: f7 f7 00 00 00 00 00 00 f7 f7 f7[f7]f7 f7 f7 f7
+  0x7b82fae05380: 00 00 00 00 00 00 f7 f7 f7 f7 00 00 00 02 f7 f7
+  0x7b82fae05400: 00 00 00 00 00 00 f7 f7 f7 f7 00 00 00 00 00 00
+  0x7b82fae05480: f7 f7 00 00 00 00 00 f7 f7 f7 00 00 00 00 00 00
+  0x7b82fae05500: f7 f7 00 00 02 f7 f7 f7 f7 f7 f7 f7 f7 f7 f7 f7
+  0x7b82fae05580: f7 f7 f7 f7 00 00 00 00 00 00 f7 f7 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+
+Memory was manually poisoned by thread T1:
+    #0 0x7f8526a4d218 in __asan_poison_memory_region ../../../../src/libsanitizer/asan/asan_poisoning.cpp:159
+    #1 0x7b830b20cf9b in clib_mem_poison ../vcl-vpp-26.10/src/vppinfra/mem.h:131
+    #2 0x7b830b210dc2 in clib_mem_heap_free ../vcl-vpp-26.10/src/vppinfra/mem_dlmalloc.c:529
+    #3 0x7b831606117b in _vec_free ../vcl-vpp-26.10/src/vppinfra/vec.h:354
+    #4 0x7b8316067016 in fifo_segment_cleanup ../vcl-vpp-26.10/src/svm/fifo_segment.c:862
+    #5 0x7b831606594f in fifo_segment_delete ../vcl-vpp-26.10/src/svm/fifo_segment.c:415
+    #6 0x7b830b3b90ee in vcl_segment_detach ../vcl-vpp-26.10/src/vcl/vcl_private.c:545
+    #7 0x7b830b38276f in vcl_session_app_del_segment_handler ../vcl-vpp-26.10/src/vcl/vppcom.c:1084
+    #8 0x7b830b399a2b in vcl_epoll_wait_handle_mq_event ../vcl-vpp-26.10/src/vcl/vppcom.c:3639
+    #9 0x7b830b39a284 in vcl_epoll_wait_handle_mq ../vcl-vpp-26.10/src/vcl/vppcom.c:3705
+    #10 0x7b830b39ae6f in vppcom_epoll_wait_eventfd ../vcl-vpp-26.10/src/vcl/vppcom.c:3791
+    #11 0x7b830b39c33b in vppcom_epoll_wait ../vcl-vpp-26.10/src/vcl/vppcom.c:3930
+    #12 0x7b8510d97ca3  (<unknown module>)
+
+Thread T14 (vcl-probe-0) created by T1 here:
+    #0 0x7f8526a3ef80 in pthread_create ../../../../src/libsanitizer/asan/asan_interceptors.cpp:257
+    #1 0x7b8523025493 in os::create_thread(Thread*, os::ThreadType, unsigned long) (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/lib/server/libjvm.so+0xead493) (BuildId: 54d218558660825b1f9ab678a2db5bb2cf83e3af)
+    #2 0x7b8522cda2d7 in JVM_StartThread (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/lib/server/libjvm.so+0xb622d7) (BuildId: 54d218558660825b1f9ab678a2db5bb2cf83e3af)
+    #3 0x7b8510c62104  (<unknown module>)
+    #4 0x7b8510c5d737  (<unknown module>)
+    #5 0x7b8510c5d737  (<unknown module>)
+    #6 0x7b8510c5d737  (<unknown module>)
+    #7 0x7b8510c565a8  (<unknown module>)
+    #8 0x7b8522bcfedf in JavaCalls::call_helper(JavaValue*, methodHandle const&, JavaCallArguments*, JavaThread*) (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/lib/server/libjvm.so+0xa57edf) (BuildId: 54d218558660825b1f9ab678a2db5bb2cf83e3af)
+    #9 0x7b8522ca09f2 in jni_invoke_static(JNIEnv_*, JavaValue*, _jobject*, JNICallType, _jmethodID*, JNI_ArgumentPusher*, JavaThread*) [clone .constprop.1] (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/lib/server/libjvm.so+0xb289f2) (BuildId: 54d218558660825b1f9ab678a2db5bb2cf83e3af)
+    #10 0x7b8522ca39d7 in jni_CallStaticVoidMethod (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/lib/server/libjvm.so+0xb2b9d7) (BuildId: 54d218558660825b1f9ab678a2db5bb2cf83e3af)
+    #11 0x7f852690a7f9 in invokeStaticMainWithArgs (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/../lib/libjli.so+0xa7f9) (BuildId: d252095c7cc9f0732ad4300bcf3e0f129fd0ba54)
+    #12 0x7f852690b8bf in JavaMain (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/../lib/libjli.so+0xb8bf) (BuildId: d252095c7cc9f0732ad4300bcf3e0f129fd0ba54)
+    #13 0x7f852690ee88 in ThreadJavaMain (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/../lib/libjli.so+0xee88) (BuildId: d252095c7cc9f0732ad4300bcf3e0f129fd0ba54)
+    #14 0x7f8526980a80 in asan_thread_start ../../../../src/libsanitizer/asan/asan_interceptors.cpp:246
+    #15 0x7f852677bdf9 in start_thread nptl/pthread_create.c:454
+
+Thread T1 created by T0 here:
+    #0 0x7f8526a3ef80 in pthread_create ../../../../src/libsanitizer/asan/asan_interceptors.cpp:257
+    #1 0x7f852690fa4a in CallJavaMainInNewThread (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/../lib/libjli.so+0xfa4a) (BuildId: d252095c7cc9f0732ad4300bcf3e0f129fd0ba54)
+    #2 0x7f852690cb8c in ContinueInNewThread (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/../lib/libjli.so+0xcb8c) (BuildId: d252095c7cc9f0732ad4300bcf3e0f129fd0ba54)
+    #3 0x7f852690d8fe in JLI_Launch (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/../lib/libjli.so+0xd8fe) (BuildId: d252095c7cc9f0732ad4300bcf3e0f129fd0ba54)
+    #4 0x55aea09b122a in main (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/java+0x122a) (BuildId: 55d9a1a82bd33376ca554f06ec54184718bf2cd6)
+    #5 0x7f8526702600 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:59
+    #6 0x7f8526702717 in __libc_start_main_impl ../csu/libc-start.c:360
+    #7 0x55aea09b12c6  (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/java+0x12c6) (BuildId: 55d9a1a82bd33376ca554f06ec54184718bf2cd6)
+
+==43415==ABORTING
+
+Thread 15 "vcl-probe-0" received signal SIGABRT, Aborted.
+[Switching to Thread 0x7b82f695b6c0 (LWP 43431)]
+__pthread_kill_implementation (threadid=<optimized out>, signo=6, no_tid=0) at ./nptl/pthread_kill.c:44
+warning: 44	./nptl/pthread_kill.c: No such file or directory
+#0  __pthread_kill_implementation (threadid=<optimized out>, signo=6, no_tid=0) at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (threadid=<optimized out>, signo=6) at ./nptl/pthread_kill.c:89
+#2  __GI___pthread_kill (threadid=<optimized out>, signo=signo@entry=6) at ./nptl/pthread_kill.c:100
+#3  0x00007f852671db7e in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007f85267008ec in __GI_abort () at ./stdlib/abort.c:77
+#5  0x00007f852695aa0f in __sanitizer::Abort () at ../../../../src/libsanitizer/sanitizer_common/sanitizer_posix_libcdep.cpp:165
+#6  0x00007f8526a80c2d in __sanitizer::Die () at ../../../../src/libsanitizer/sanitizer_common/sanitizer_termination.cpp:58
+#7  0x00007f8526a5593c in __asan::ScopedInErrorReport::~ScopedInErrorReport (this=0x7b82f69593c6) at ../../../../src/libsanitizer/asan/asan_report.cpp:221
+#8  0x00007f8526a54e02 in __asan::ReportGenericError (pc=135802759080300, bp=135802412965952, sp=sp@entry=135802412965936, addr=135802484970328, is_write=is_write@entry=false, access_size=8, fatal=true, exp=<optimized out>) at ../../../../src/libsanitizer/asan/asan_report.cpp:536
+#9  0x00007f8526a54f8d in __asan::ReportGenericError (pc=<optimized out>, bp=bp@entry=135802412965952, sp=sp@entry=135802412965936, addr=<optimized out>, is_write=is_write@entry=false, access_size=<optimized out>, exp=<optimized out>, fatal=true) at ../../../../src/libsanitizer/asan/asan_report.cpp:536
+#10 0x00007f8526a56bb6 in __asan::__asan_report_load_n (addr=<optimized out>, size=<optimized out>) at ../../../../src/libsanitizer/asan/asan_rtl.cpp:156
+#11 0x00007b830b36e96c in svm_msg_q_size (mq=0x7b82fae05358) at ../vcl-vpp-26.10/src/svm/message_queue.h:314
+#12 0x00007b830b36ed7b in svm_msg_q_is_empty (mq=0x7b82fae05358) at ../vcl-vpp-26.10/src/svm/message_queue.h:345
+#13 0x00007b830b39a00b in vcl_epoll_wait_handle_mq (wrk=0x7b82fae00bc0, mq=0x7b82fae05358, events=0x7d352581fe80, maxevents=128, wait_for_time=0, num_ev=0x7b82dcbf8630) at ../vcl-vpp-26.10/src/vcl/vppcom.c:3684
+#14 0x00007b830b39ae70 in vppcom_epoll_wait_eventfd (wrk=0x7b82fae00bc0, events=0x7d352581fe80, maxevents=128, n_evts=0, timeout_ms=0) at ../vcl-vpp-26.10/src/vcl/vppcom.c:3791
+#15 0x00007b830b39c33c in vppcom_epoll_wait (vep_handle=16777216, events=0x7d352581fe80, maxevents=128, wait_for_time=0) at ../vcl-vpp-26.10/src/vcl/vppcom.c:3930
+#16 0x00007b8510d97ca4 in ?? ()
+#17 0x00007b82f695a2c0 in ?? ()
+#18 0x00007b82f695a310 in ?? ()
+#19 0x00007b82f695a648 in ?? ()
+#20 0x00007b8509825f4c in ?? ()
+#21 0x00007d55257e9680 in ?? ()
+#22 0x000000001a012b68 in ?? ()
+#23 0x0000000000000001 in ?? ()
+#24 0x00007b8319200000 in ?? ()
+#25 0x0000000000000000 in ?? ()

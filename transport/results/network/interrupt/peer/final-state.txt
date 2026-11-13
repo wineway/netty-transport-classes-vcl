@@ -1,0 +1,82 @@
+show session verbose
+Connection                                                  State          Rx-f      Tx-f      
+[0:10][T] 10.88.0.2:32102->10.88.0.1:9784                   CLOSED         0         0         
+Thread 0: active sessions 1
+show errors
+   Count                  Node                              Reason               Severity 
+     12414           session-queue                   Packets transmitted           info   
+         5            udp6-output                        Packets sent              info   
+         5            udp4-output                        Packets sent              info   
+         5             udp6-input                      Packets enqueued            info   
+         5             udp4-input                      Packets enqueued            info   
+         1             tcp4-input                  no listener for dst port        error  
+         1            tcp6-listen                       SYNs received              info   
+         4            tcp4-listen                       SYNs received              info   
+         1          tcp6-rcv-process                  Pure ACKs received           info   
+         1          tcp6-rcv-process                 Connections accepted          info   
+         5          tcp4-rcv-process                  Pure ACKs received           info   
+         4          tcp4-rcv-process                 Connections accepted          info   
+        92          tcp6-established             Packets pushed into rx fifo       info   
+        42          tcp6-established                  Pure ACKs received           info   
+         1          tcp6-established                    FINs received              info   
+     11687          tcp4-established             Packets pushed into rx fifo       info   
+         2          tcp4-established                     Old segment               warn   
+       138          tcp4-established                  Pure ACKs received           info   
+         4          tcp4-established                    FINs received              info   
+         1          tcp4-established                 Zero receive window           warn   
+         1             tcp4-reset                        Resets sent               info   
+       123            tcp6-output                        Packets sent              info   
+     12292            tcp4-output                        Packets sent              info   
+         1        ip6-local-hop-by-hop       Unknown protocol ip6 local h-b-h pa   error  
+show interface
+              Name               Idx    State  MTU (L3/IP4/IP6/MPLS)     Counter          Count     
+local0                            0     down          0/0/0/0       
+memif1/0                          1      up          9000/0/0/0     rx packets                 11995
+                                                                    rx bytes                17836758
+                                                                    tx packets                 12427
+                                                                    tx bytes                17862052
+                                                                    drops                          1
+                                                                    ip4                        11851
+                                                                    ip6                          144
+show ip fib
+ipv4-VRF:0, fib_index:0, flow hash:[src dst sport dport proto flowlabel ] epoch:0 flags:none locks:[adjacency:1, default-route:1, session lookup:1, ]
+0.0.0.0/0
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:1 buckets:1 uRPF:0 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+0.0.0.0/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:2 buckets:1 uRPF:1 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+10.88.0.0/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:10 buckets:1 uRPF:10 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+10.88.0.1/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:17 buckets:1 uRPF:14 to:[12298:17547726]]
+    [0] [@5]: ipv4 via 10.88.0.1 memif1/0: mtu:9000 next:3 flags:[] 0200000000010200000000020800
+10.88.0.0/24
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:9 buckets:1 uRPF:9 to:[0:0]]
+    [0] [@4]: ipv4-glean: [src:10.88.0.0/24] memif1/0: mtu:9000 next:1 flags:[] ffffffffffff0200000000020806
+10.88.0.2/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:8 buckets:1 uRPF:8 to:[11851:17527400]]
+    [0] [@11]: dpo-receive: 10.88.0.2 on memif1/0
+10.88.0.255/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:11 buckets:1 uRPF:12 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+224.0.0.0/4
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:4 buckets:1 uRPF:3 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+240.0.0.0/4
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:3 buckets:1 uRPF:2 to:[0:0]]
+    [0] [@0]: dpo-drop ip4
+255.255.255.255/32
+  unicast-ip4-chain
+  [@0]: dpo-load-balance: [proto:ip4 index:5 buckets:1 uRPF:4 to:[0:0]]
+    [0] [@0]: dpo-drop ip4

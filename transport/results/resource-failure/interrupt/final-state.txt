@@ -1,0 +1,2 @@
+show session verbose
+Command '['/tmp/vcl26-build/bin/vppctl', '-s', '/tmp/vcl-resources-it-6/interrupt/cli.sock', 'show', 'session', 'verbose']' timed out after 10 seconds

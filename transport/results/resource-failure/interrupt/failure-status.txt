@@ -1,0 +1,61 @@
+Name:	vpp_main
+Umask:	0022
+State:	R (running)
+Tgid:	1596
+Ngid:	0
+Pid:	1596
+PPid:	1560
+TracerPid:	0
+Uid:	0	0	0	0
+Gid:	0	0	0	0
+FDSize:	64
+Groups:	0 
+NStgid:	1596
+NSpid:	1596
+NSpgid:	1560
+NSsid:	1560
+Kthread:	0
+VmPeak:	17560616 kB
+VmSize:	17200084 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	  358588 kB
+VmRSS:	  213152 kB
+RssAnon:	  180884 kB
+RssFile:	   15052 kB
+RssShmem:	   17216 kB
+VmData:	  299048 kB
+VmStk:	     132 kB
+VmExe:	      80 kB
+VmLib:	   19292 kB
+VmPTE:	     512 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	1
+SigQ:	27/126443
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000011000
+SigCgt:	000000007bf8e4ff
+CapInh:	0000000000000000
+CapPrm:	00000000800405fb
+CapEff:	00000000800405fb
+CapBnd:	00000000800405fb
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	2
+Seccomp_filters:	1
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	0001
+Cpus_allowed_list:	0
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	0
+nonvoluntary_ctxt_switches:	56
+x86_Thread_features:	
+x86_Thread_features_locked:	

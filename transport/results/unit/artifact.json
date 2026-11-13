@@ -1,0 +1,29 @@
+{
+  "artifact": "netty-transport-classes-vcl-0.1.0-SNAPSHOT.jar",
+  "artifact_sha256": "ebda3deb3b05048f6802b151a595c10048c11b659ba945adf4b8e1bc88c1c13c",
+  "bytes": 81604,
+  "unit_tests": 30,
+  "source_sha256": {
+    "transport/src/main/java/me/wineway/vcl/AbstractVclChannel.java": "19b642ecc1089604b1939d7ba8668d95d916bb0e58d80171339e4759cfc204a6",
+    "transport/src/main/java/me/wineway/vcl/FfmVclApplication.java": "d8d28a69e81f7416132739e6019e4b3fceb1c3f5529970f824c7341fc0fb7378",
+    "transport/src/main/java/me/wineway/vcl/FfmVclIo.java": "6b747364860f5701bcc845359cc854a24734f188f07ddf8cc9f051beb826319e",
+    "transport/src/main/java/me/wineway/vcl/LinuxWaiter.java": "53dadbb074d00d593d5270c0fee86a9416f007e8735090703e1aa7064cae4c59",
+    "transport/src/main/java/me/wineway/vcl/NativeCalls.java": "396c021a9f7448698b134672cfda3c2ccedc92a6b944a02eb598f9dd2c5e9292",
+    "transport/src/main/java/me/wineway/vcl/PortReservations.java": "367f09ecf1151b7fa947adc6143a717d7e375743048213868e549f4d8bdc9f7f",
+    "transport/src/main/java/me/wineway/vcl/VclAbi.java": "1cba09e75ddab5dc8acc2ba05bcbf0a2d4a8c99c5396ff44961aff20da9c3e59",
+    "transport/src/main/java/me/wineway/vcl/VclApplication.java": "209bd35534ac8554fbeaaed353ca1029ea10db4534e52bb6f526669b2bb50e35",
+    "transport/src/main/java/me/wineway/vcl/VclDatagramChannel.java": "144b590f4dee6211105a0ded0c4cf552c78db70aafb3c5773f253be914398fa9",
+    "transport/src/main/java/me/wineway/vcl/VclDatagramChannelConfig.java": "baebfc81fbbdd7dfc8700483d60a3b2d4d9b0f08088abffcefcc8cceafac448d",
+    "transport/src/main/java/me/wineway/vcl/VclException.java": "498c4f12d417a8f856faed1a05ef626c66d8f098d22eec2b452f716bff657965",
+    "transport/src/main/java/me/wineway/vcl/VclIo.java": "910c7e359bf15bf97792ad1225b62ac58187592c7c8a731e3fff0c0b5ef58903",
+    "transport/src/main/java/me/wineway/vcl/VclIoHandler.java": "13f52e34fdb9c85f0ae739b5d6c2d5965b44effe78d7ba45f528445485f7da1e",
+    "transport/src/main/java/me/wineway/vcl/VclMode.java": "1e7ed1afd40283cf56a5f0e64fdc28ce039e46f76c9f87dcbd0dcbae609b76ac",
+    "transport/src/main/java/me/wineway/vcl/VclRuntime.java": "300b78a78cd98e3395ef1231140fe4bab375fe10bf37f91dc651c56a8bcb00b6",
+    "transport/src/main/java/me/wineway/vcl/VclServer.java": "d03d421790cffd8ce4a8b0c15fec05f7381413f84460ca9e4fc0f9fa99ee694a",
+    "transport/src/main/java/me/wineway/vcl/VclServerSocketChannel.java": "eab1eed0d351eeb9f3eb4fc5d46b04b825f30791a03c61549dd90b6de32aa5a9",
+    "transport/src/main/java/me/wineway/vcl/VclServerSocketChannelConfig.java": "e2fdabbfece8f7e97473c04beaf0c73ce1a39e3da73daa68ce739c986e2683ad",
+    "transport/src/main/java/me/wineway/vcl/VclSocketChannel.java": "3f60deb5ba41d081d2f3e2af2f8d28627f2b4516286bcf85574466abceb049c1",
+    "transport/src/main/java/me/wineway/vcl/VclSocketChannelConfig.java": "8da0bd7150863fdb4a10f0892d93158836805da735cbf2e3649015d7cf3b6a1a",
+    "transport/src/main/java/me/wineway/vcl/example/EchoServer.java": "145f1da94963b553143281e507a672a683985993161b74c557251581fc115209"
+  }
+}

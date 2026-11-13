@@ -1,0 +1,5 @@
+{"test":"abi","checks":81,"passed":true}
+{"test":"worker","mode":"interrupt","index":0,"mq_fd":4,"detached_query":0}
+{"test":"libc_wakeup","iterations":100,"vcl_mq_nested":true,"passed":true}
+{"test":"retention_after_vpp_exit","detached_query":1,"rx_address_mapped":false,"nio_capacity":9}
+{"test":"probe_complete","passed":true}

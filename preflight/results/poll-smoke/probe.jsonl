@@ -1,0 +1,5 @@
+{"test":"abi","checks":81,"passed":true}
+{"test":"worker","mode":"poll","index":0,"mq_fd":-1,"detached_query":-95}
+{"test":"tcp","ip":"10.77.0.1","copy_and_segments":true}
+{"test":"tcp","ip":"fd77::1","copy_and_segments":true}
+{"test":"probe_complete","passed":true}

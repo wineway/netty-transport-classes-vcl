@@ -1,0 +1,95 @@
+{"test":"abi","checks":81,"passed":true}
+allocated VCL heap = 0x7be3062003d0, size 268435456 (0x10000000)
+VCL config was provided. Applying user config
+{"test":"worker","mode":"interrupt","index":0,"mq_fd":5,"detached_query":0}
+{"test":"libc_wakeup","iterations":100,"vcl_mq_nested":true,"passed":true}
+{"test":"tcp","ip":"10.77.0.1","copy_and_segments":true}
+{"test":"tcp","ip":"fd77::1","copy_and_segments":true}
+=================================================================
+==43233==ERROR: AddressSanitizer: use-after-poison on address 0x7be306205298 at pc 0x7be31675496c bp 0x7be301eb9000 sp 0x7be301eb8ff0
+READ of size 8 at 0x7be306205298 thread T15 (vcl-probe-1)
+    #0 0x7be31675496b in svm_msg_q_size ../vcl-vpp-26.10/src/svm/message_queue.h:314
+    #1 0x7be316754d7a in svm_msg_q_is_empty ../vcl-vpp-26.10/src/svm/message_queue.h:345
+    #2 0x7be31678000a in vcl_epoll_wait_handle_mq ../vcl-vpp-26.10/src/vcl/vppcom.c:3684
+    #3 0x7be316780e6f in vppcom_epoll_wait_eventfd ../vcl-vpp-26.10/src/vcl/vppcom.c:3791
+    #4 0x7be31678233b in vppcom_epoll_wait ../vcl-vpp-26.10/src/vcl/vppcom.c:3930
+    #5 0x7be51c18df23  (<unknown module>)
+
+Address 0x7be306205298 is a wild pointer inside of access range of size 0x000000000008.
+SUMMARY: AddressSanitizer: use-after-poison ../vcl-vpp-26.10/src/svm/message_queue.h:314 in svm_msg_q_size
+Shadow bytes around the buggy address:
+  0x7be306205000: f7 f7 00 00 00 00 00 00 f7 f7 00 00 00 00 00 f7
+  0x7be306205080: f7 f7 00 00 00 00 00 f7 f7 f7 00 00 04 f7 f7 f7
+  0x7be306205100: 00 00 00 00 00 00 00 00 f7 f7 00 00 00 00 00 00
+  0x7be306205180: f7 f7 f7 f7 f7 f7 f7 f7 00 00 00 00 00 00 00 00
+  0x7be306205200: 00 00 00 00 00 00 00 00 f7 f7 00 00 00 00 00 00
+=>0x7be306205280: f7 f7 f7[f7]f7 f7 f7 f7 f7 f7 f7 f7 f7 f7 f7 f7
+  0x7be306205300: f7 f7 00 00 00 00 f7 f7 f7 f7 f7 f7 f7 f7 f7 f7
+  0x7be306205380: f7 f7 00 00 00 00 00 00 f7 f7 00 00 00 02 f7 f7
+  0x7be306205400: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7be306205480: f7 f7 00 00 00 00 00 f7 f7 f7 00 00 00 00 00 00
+  0x7be306205500: f7 f7 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+
+Memory was manually poisoned by thread T1:
+    #0 0x7fe531dc3218 in __asan_poison_memory_region ../../../../src/libsanitizer/asan/asan_poisoning.cpp:159
+    #1 0x7be31658ef9b in clib_mem_poison ../vcl-vpp-26.10/src/vppinfra/mem.h:131
+    #2 0x7be316592dc2 in clib_mem_heap_free ../vcl-vpp-26.10/src/vppinfra/mem_dlmalloc.c:529
+    #3 0x7be3166da17b in _vec_free ../vcl-vpp-26.10/src/vppinfra/vec.h:354
+    #4 0x7be3166e00ca in fifo_segment_cleanup ../vcl-vpp-26.10/src/svm/fifo_segment.c:867
+    #5 0x7be3166de94f in fifo_segment_delete ../vcl-vpp-26.10/src/svm/fifo_segment.c:415
+    #6 0x7be31679f0ee in vcl_segment_detach ../vcl-vpp-26.10/src/vcl/vcl_private.c:545
+    #7 0x7be31676876f in vcl_session_app_del_segment_handler ../vcl-vpp-26.10/src/vcl/vppcom.c:1084
+    #8 0x7be31677fa2b in vcl_epoll_wait_handle_mq_event ../vcl-vpp-26.10/src/vcl/vppcom.c:3639
+    #9 0x7be316780284 in vcl_epoll_wait_handle_mq ../vcl-vpp-26.10/src/vcl/vppcom.c:3705
+    #10 0x7be316780e6f in vppcom_epoll_wait_eventfd ../vcl-vpp-26.10/src/vcl/vppcom.c:3791
+    #11 0x7be31678233b in vppcom_epoll_wait ../vcl-vpp-26.10/src/vcl/vppcom.c:3930
+    #12 0x7be51c18df23  (<unknown module>)
+
+Thread T15 (vcl-probe-1) created by T1 here:
+    #0 0x7fe531db4f80 in pthread_create ../../../../src/libsanitizer/asan/asan_interceptors.cpp:257
+    #1 0x7be52e425493 in os::create_thread(Thread*, os::ThreadType, unsigned long) (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/lib/server/libjvm.so+0xead493) (BuildId: 54d218558660825b1f9ab678a2db5bb2cf83e3af)
+    #2 0x7be52e0da2d7 in JVM_StartThread (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/lib/server/libjvm.so+0xb622d7) (BuildId: 54d218558660825b1f9ab678a2db5bb2cf83e3af)
+    #3 0x7be51c062104  (<unknown module>)
+    #4 0x7be51c05d737  (<unknown module>)
+    #5 0x7be51c05d737  (<unknown module>)
+    #6 0x7be51c05d737  (<unknown module>)
+    #7 0x7be51c0565a8  (<unknown module>)
+    #8 0x7be52dfcfedf in JavaCalls::call_helper(JavaValue*, methodHandle const&, JavaCallArguments*, JavaThread*) (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/lib/server/libjvm.so+0xa57edf) (BuildId: 54d218558660825b1f9ab678a2db5bb2cf83e3af)
+    #9 0x7be52e0a09f2 in jni_invoke_static(JNIEnv_*, JavaValue*, _jobject*, JNICallType, _jmethodID*, JNI_ArgumentPusher*, JavaThread*) [clone .constprop.1] (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/lib/server/libjvm.so+0xb289f2) (BuildId: 54d218558660825b1f9ab678a2db5bb2cf83e3af)
+    #10 0x7be52e0a39d7 in jni_CallStaticVoidMethod (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/lib/server/libjvm.so+0xb2b9d7) (BuildId: 54d218558660825b1f9ab678a2db5bb2cf83e3af)
+    #11 0x7fe531c807f9 in invokeStaticMainWithArgs (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/../lib/libjli.so+0xa7f9) (BuildId: d252095c7cc9f0732ad4300bcf3e0f129fd0ba54)
+    #12 0x7fe531c818bf in JavaMain (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/../lib/libjli.so+0xb8bf) (BuildId: d252095c7cc9f0732ad4300bcf3e0f129fd0ba54)
+    #13 0x7fe531c84e88 in ThreadJavaMain (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/../lib/libjli.so+0xee88) (BuildId: d252095c7cc9f0732ad4300bcf3e0f129fd0ba54)
+    #14 0x7fe531cf6a80 in asan_thread_start ../../../../src/libsanitizer/asan/asan_interceptors.cpp:246
+    #15 0x7fe531af1df9 in start_thread nptl/pthread_create.c:454
+
+Thread T1 created by T0 here:
+    #0 0x7fe531db4f80 in pthread_create ../../../../src/libsanitizer/asan/asan_interceptors.cpp:257
+    #1 0x7fe531c85a4a in CallJavaMainInNewThread (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/../lib/libjli.so+0xfa4a) (BuildId: d252095c7cc9f0732ad4300bcf3e0f129fd0ba54)
+    #2 0x7fe531c82b8c in ContinueInNewThread (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/../lib/libjli.so+0xcb8c) (BuildId: d252095c7cc9f0732ad4300bcf3e0f129fd0ba54)
+    #3 0x7fe531c838fe in JLI_Launch (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/../lib/libjli.so+0xd8fe) (BuildId: d252095c7cc9f0732ad4300bcf3e0f129fd0ba54)
+    #4 0x55fc5f35222a in main (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/java+0x122a) (BuildId: 55d9a1a82bd33376ca554f06ec54184718bf2cd6)
+    #5 0x7fe531a78600 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:59
+    #6 0x7fe531a78717 in __libc_start_main_impl ../csu/libc-start.c:360
+    #7 0x55fc5f3522c6  (/tmp/netty-vcl-deps/jdk/jdk-26.0.2.1+1/bin/java+0x12c6) (BuildId: 55d9a1a82bd33376ca554f06ec54184718bf2cd6)
+
+==43233==ABORTING

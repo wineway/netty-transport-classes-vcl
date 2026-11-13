@@ -1,0 +1,64 @@
+{
+  "recorded_at_utc": "2026-11-15T03:01:58.758520+00:00",
+  "java": "openjdk version \"26.0.2.1\" 2026-08-18\nOpenJDK Runtime Environment Temurin-26.0.2.1+1 (build 26.0.2.1+1)\nOpenJDK 64-Bit Server VM Temurin-26.0.2.1+1 (build 26.0.2.1+1, mixed mode, sharing)\n",
+  "vpp_cpus": [
+    0
+  ],
+  "jvm_cpus": [
+    1,
+    2
+  ],
+  "peer_cpus": [
+    4,
+    5
+  ],
+  "modes": [
+    "interrupt"
+  ],
+  "topology": "loopback; same host; no physical NIC",
+  "hardware": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           39 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  16\nOn-line CPU(s) list:                     0-15\nVendor ID:                               GenuineIntel\nModel name:                              11th Gen Intel(R) Core(TM) i7-11700T @ 1.40GHz\nCPU family:                              6\nModel:                                   167\nThread(s) per core:                      2\nCore(s) per socket:                      8\nSocket(s):                               1\nStepping:                                1\nCPU(s) scaling MHz:                      42%\nCPU max MHz:                             4600.0000\nCPU min MHz:                             800.0000\nBogoMIPS:                                2784.00\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx avx512f avx512dq rdseed adx smap avx512ifma clflushopt intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm md_clear flush_l1d arch_capabilities\nVirtualization:                          VT-x\nL1d cache:                               384 KiB (8 instances)\nL1i cache:                               256 KiB (8 instances)\nL2 cache:                                4 MiB (8 instances)\nL3 cache:                                16 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-15\nVulnerability Gather data sampling:      Vulnerable: No microcode\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Mitigation; Aligned branch/return thunks\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Vulnerable: Clear CPU buffers attempted, no microcode; SMT vulnerable\nVulnerability Old microcode:             Vulnerable\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Mitigation; Enhanced IBRS\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected\n",
+  "kernel": "7.2.15-arch1-1",
+  "extra_properties": [
+    "vcl.it.resourceTraffic=false"
+  ],
+  "source_sha256": {
+    "src/main/java/me/wineway/vcl/AbstractVclChannel.java": "19b642ecc1089604b1939d7ba8668d95d916bb0e58d80171339e4759cfc204a6",
+    "src/main/java/me/wineway/vcl/FfmVclApplication.java": "d1f9f290c31748d43b651d5cba7877b6340cfcc4270925bb7f90c31b3f70def2",
+    "src/main/java/me/wineway/vcl/FfmVclIo.java": "1beeaeb52c11c2c236453ea8709379749743e151d37ae39fe04a1097340c645d",
+    "src/main/java/me/wineway/vcl/LinuxWaiter.java": "53dadbb074d00d593d5270c0fee86a9416f007e8735090703e1aa7064cae4c59",
+    "src/main/java/me/wineway/vcl/NativeCalls.java": "f74e4926c907327eed6ae356717dd67b05fb1dd39fce0fd10654e9de2ad873e0",
+    "src/main/java/me/wineway/vcl/PortReservations.java": "367f09ecf1151b7fa947adc6143a717d7e375743048213868e549f4d8bdc9f7f",
+    "src/main/java/me/wineway/vcl/VclAbi.java": "1cba09e75ddab5dc8acc2ba05bcbf0a2d4a8c99c5396ff44961aff20da9c3e59",
+    "src/main/java/me/wineway/vcl/VclApplication.java": "209bd35534ac8554fbeaaed353ca1029ea10db4534e52bb6f526669b2bb50e35",
+    "src/main/java/me/wineway/vcl/VclDatagramChannel.java": "144b590f4dee6211105a0ded0c4cf552c78db70aafb3c5773f253be914398fa9",
+    "src/main/java/me/wineway/vcl/VclDatagramChannelConfig.java": "baebfc81fbbdd7dfc8700483d60a3b2d4d9b0f08088abffcefcc8cceafac448d",
+    "src/main/java/me/wineway/vcl/VclException.java": "498c4f12d417a8f856faed1a05ef626c66d8f098d22eec2b452f716bff657965",
+    "src/main/java/me/wineway/vcl/VclIo.java": "910c7e359bf15bf97792ad1225b62ac58187592c7c8a731e3fff0c0b5ef58903",
+    "src/main/java/me/wineway/vcl/VclIoHandler.java": "13f52e34fdb9c85f0ae739b5d6c2d5965b44effe78d7ba45f528445485f7da1e",
+    "src/main/java/me/wineway/vcl/VclMode.java": "1e7ed1afd40283cf56a5f0e64fdc28ce039e46f76c9f87dcbd0dcbae609b76ac",
+    "src/main/java/me/wineway/vcl/VclRuntime.java": "300b78a78cd98e3395ef1231140fe4bab375fe10bf37f91dc651c56a8bcb00b6",
+    "src/main/java/me/wineway/vcl/VclServer.java": "d7b8c436b54002c0e3313099808e0555f6d59abcff7f124ef9c548ff8e3c9f6b",
+    "src/main/java/me/wineway/vcl/VclServerSocketChannel.java": "eab1eed0d351eeb9f3eb4fc5d46b04b825f30791a03c61549dd90b6de32aa5a9",
+    "src/main/java/me/wineway/vcl/VclServerSocketChannelConfig.java": "e2fdabbfece8f7e97473c04beaf0c73ce1a39e3da73daa68ce739c986e2683ad",
+    "src/main/java/me/wineway/vcl/VclSocketChannel.java": "3f60deb5ba41d081d2f3e2af2f8d28627f2b4516286bcf85574466abceb049c1",
+    "src/main/java/me/wineway/vcl/VclSocketChannelConfig.java": "8da0bd7150863fdb4a10f0892d93158836805da735cbf2e3649015d7cf3b6a1a",
+    "src/main/java/me/wineway/vcl/example/EchoServer.java": "145f1da94963b553143281e507a672a683985993161b74c557251581fc115209",
+    "src/test/java/me/wineway/vcl/AbiTest.java": "628aac2ba4df55c2587c09836c70e8c92b5f32aa1f85f782b7c7d7ec823b1b3f",
+    "src/test/java/me/wineway/vcl/ChannelStateTest.java": "1368d62d8a92d8eef65fd232a6ff2401d7988edc183853f9fde9b857ebcecd02",
+    "src/test/java/me/wineway/vcl/LinuxWaiterTest.java": "9eec0d7fd3bd29dad49cea82945dc29cf6f52529b5b83f239980a727f7664685",
+    "src/test/java/me/wineway/vcl/NativeResourcesIT.java": "8bb1a4ff06efe1549dd5406d63122c0131d45027516a36ba9323b4b952150287",
+    "src/test/java/me/wineway/vcl/NetworkPeerMain.java": "adaadac0bfd7bf496482de68bbd0bfe976715d04760449509a404cea6fb07c6d",
+    "src/test/java/me/wineway/vcl/NetworkTransportIT.java": "2c2f8d97054037aeb70d238dd80ac578d7cda2ad597d37389902c5c7fc7a8266",
+    "src/test/java/me/wineway/vcl/ProcessMetrics.java": "c12cfce289137749f632aa2b6f71a5642b32baf23f12675a7322e4ad99c6b912",
+    "src/test/java/me/wineway/vcl/RealTransportSupport.java": "fc8eabc241015432406da9df459547a27730916b6aceae491f287bbe3e4fce45",
+    "src/test/java/me/wineway/vcl/RuntimeLifecycleTest.java": "28b1745cb69a4ba4db5e86383f9e9a0f5c0d7fb66b3fe2ed3a865b0948ab0fa8",
+    "src/test/java/me/wineway/vcl/ServerLifecycleTest.java": "e03be53666961a87170e5267118c8989c092be512d7dc328df7513df1b440c1b",
+    "src/test/java/me/wineway/vcl/SimulatedIo.java": "abe932a429b70d9364d3877e141897e20357cfe6c2f23293e7cc2f014656a664",
+    "src/test/java/me/wineway/vcl/TransportBenchmarkIT.java": "2ad2e2daf163579d9b1a0461776b418a3cec198df939efee3f972847d8c9af39",
+    "src/test/java/me/wineway/vcl/TransportContractIT.java": "dc09ea3f1eb198a46ad4a4105cb264e9fe2dc3eee224ad6bbff486a6d8e7f425",
+    "src/test/java/me/wineway/vcl/VppFailureIT.java": "744c870dfa5473c8382981ac18e4416d1940cdf91057cd9ae740ad6c2b361a47"
+  },
+  "library_sha256": "913588bad335df0645cb0acc6129c9b869f1b37ba8bf9c1bfdb8c6008fb0021e",
+  "library_source_commit": "4acb320269bc4f3533e35c80afedac38853b2f60",
+  "patch_sha256": "a766dccf79cfe2cc16c732b4317fd300abe187ccd2c7665f1465cd1601bcac03"
+}

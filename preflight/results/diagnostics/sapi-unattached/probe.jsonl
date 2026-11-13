@@ -1,0 +1,17 @@
+{"connections_closed": 0, "server_fds": 13, "cli": "responsive"}
+{"connections_closed": 1, "server_fds": 14, "cli": "responsive"}
+{"connections_closed": 2, "server_fds": 15, "cli": "responsive"}
+{"connections_closed": 3, "server_fds": 16, "cli": "responsive"}
+{"connections_closed": 4, "server_fds": 17, "cli": "responsive"}
+{"connections_closed": 5, "server_fds": 18, "cli": "responsive"}
+{"connections_closed": 6, "server_fds": 19, "cli": "responsive"}
+{"connections_closed": 7, "server_fds": 20, "cli": "responsive"}
+{"connections_closed": 8, "server_fds": 21, "cli": "responsive"}
+{"connections_closed": 9, "server_fds": 22, "cli": "responsive"}
+{"connections_closed": 10, "server_fds": 23, "cli": "responsive"}
+{"connections_closed": 11, "server_fds": 24, "cli": "responsive"}
+{"connections_closed": 12, "server_fds": 25, "cli": "responsive"}
+{"connections_closed": 13, "server_fds": 26, "cli": "responsive"}
+{"connections_closed": 14, "server_fds": 27, "cli": "responsive"}
+{"connections_closed": 15, "server_fds": 28, "cli": "responsive"}
+{"connections_closed": 16, "server_fds": 29, "cli": "timeout"}

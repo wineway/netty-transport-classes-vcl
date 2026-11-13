@@ -1,0 +1,4 @@
+create loopback interface
+set interface state loop0 up
+set interface ip address loop0 10.77.0.1/24
+set interface ip address loop0 fd77::1/64

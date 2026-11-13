@@ -1,0 +1,3 @@
+vpp[2943]: memif_plugin: memif1/0: default_socket_recvmsg: disconnected
+vpp[2943]: received signal SIGTERM, PC 0x7f513dbcf398
+vpp[2943]: received SIGTERM from PID 2768 UID 0, exiting...
