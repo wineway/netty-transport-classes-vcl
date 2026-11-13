@@ -1,7 +1,0 @@
-	linux-vdso.so.1 (0x00007f3f91e4f000)
-	libnuma.so.1 => /usr/lib/x86_64-linux-gnu/libnuma.so.1 (0x00007f3f90764000)
-	libcrypto.so.3 => /usr/lib/x86_64-linux-gnu/libcrypto.so.3 (0x00007f3f9014a000)
-	libc.so.6 => /usr/lib/x86_64-linux-gnu/libc.so.6 (0x00007f3f8ff29000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007f3f91e51000)
-	libz.so.1 => /usr/lib/x86_64-linux-gnu/libz.so.1 (0x00007f3f8ff0b000)
-	libzstd.so.1 => /usr/lib/x86_64-linux-gnu/libzstd.so.1 (0x00007f3f8fe48000)

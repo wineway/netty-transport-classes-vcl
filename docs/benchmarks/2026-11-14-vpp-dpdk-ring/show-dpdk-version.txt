@@ -1,2 +1,0 @@
-DPDK Version:             DPDK 25.07.0
-DPDK EAL init args:       --no-pci -m 256 --no-huge --no-shconf --file-prefix netty-vpp-ring --vdev net_ring0 --no-telemetry 

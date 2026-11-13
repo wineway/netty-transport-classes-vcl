@@ -1,2 +1,0 @@
-
-Statistics: 1 sent, 0 received, 100% packet loss

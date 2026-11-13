@@ -1,3 +1,0 @@
-MEASURE_START
-MEASURE_END
-RESULT {"bytes":65536,"connections":8,"window":4,"warmup_seconds":5,"elapsed_seconds":10.000936577,"messages":246516,"messages_per_second":24649.291,"payload_mib_per_second":1540.581,"p50_us":1134.591,"p99_us":2330.623,"max_us":7651.327,"client_cpu_seconds":5.780000000}

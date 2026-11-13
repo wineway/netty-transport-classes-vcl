@@ -1,4 +1,0 @@
-vpp[23866]: clib_sysfs_prealloc_hugepages:236: pre-allocating 2 additional 2048K hugepages on numa node 0
-vpp[23866]: buffer: numa[0] falling back to non-hugepage backed buffer pool (vlib_physmem_shared_map_create: pmalloc_map_pages: failed to mmap 2 pages at 0x1000000000 fd 4 numa 0 flags 0x11: Cannot allocate memory)
-vpp[23866]: dpdk_config:1324: af_packet obsoleted. Use CLI 'create host-interface'.
-vpp[23866]: dpdk_config: rte_eal_init returned -1

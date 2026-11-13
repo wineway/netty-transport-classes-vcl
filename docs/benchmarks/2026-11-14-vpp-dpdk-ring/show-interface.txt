@@ -1,7 +1,0 @@
-              Name               Idx    State  MTU (L3/IP4/IP6/MPLS)     Counter          Count     
-Ethernet0                         1      up          1500/0/0/0     rx packets                     1
-                                                                    rx bytes                      42
-                                                                    tx packets                     1
-                                                                    tx bytes                      42
-                                                                    drops                          2
-local0                            0     down          0/0/0/0       
